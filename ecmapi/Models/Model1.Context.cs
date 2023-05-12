@@ -58,10 +58,13 @@ namespace ecmapi.Models
         public virtual DbSet<sms_Religion> sms_Religion { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<student_category> student_category { get; set; }
-        public virtual DbSet<userEntity> userEntities { get; set; }
         public virtual DbSet<ut_clients> ut_clients { get; set; }
-        public virtual DbSet<ut_user_auth> ut_user_auth { get; set; }
         public virtual DbSet<hdr_FOAdmEnquiry> hdr_FOAdmEnquiry { get; set; }
         public virtual DbSet<hdr_SMAcademicYear> hdr_SMAcademicYear { get; set; }
+        public virtual DbSet<userEntity> userEntities { get; set; }
+        public virtual DbSet<mst_user_Entity> mst_user_Entity { get; set; }
+        public virtual DbSet<ut_user_auth> ut_user_auth { get; set; }
+        public virtual DbSet<mst_region> mst_region { get; set; }
+        public virtual DbSet<hdr_occupation> hdr_occupation { get; set; }
     }
 }

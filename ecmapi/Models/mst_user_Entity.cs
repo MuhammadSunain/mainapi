@@ -12,11 +12,13 @@ namespace ecmapi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class userEntity
+    public partial class mst_user_Entity
     {
         public int Id { get; set; }
         public Nullable<int> userId { get; set; }
         public string EntityName { get; set; }
-        public Nullable<int> clientid { get; set; }
+        public Nullable<int> clientId { get; set; }
+    
+        public virtual ut_user_auth ut_user_auth { get; set; }
     }
 }

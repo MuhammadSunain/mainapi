@@ -184,7 +184,9 @@
     <Compile Include="Controllers\EntitySetup\dtoentity.cs" />
     <Compile Include="Controllers\EntitySetup\EntitySetupController.cs" />
     <Compile Include="Controllers\EntitySetup\entityTypeController.cs" />
+    <Compile Include="Controllers\EntitySetup\hdroccupationController.cs" />
     <Compile Include="Controllers\EntitySetup\hdr_SMAcademicYearController.cs" />
+    <Compile Include="Controllers\EntitySetup\mst_regionController.cs" />
     <Compile Include="Controllers\FRD\fr_setup_caseGrpController.cs" />
     <Compile Include="Controllers\FRD\fr_setup_caseRulesController.cs" />
     <Compile Include="Controllers\FRD\fr_setup_caseStageController.cs" />
@@ -236,6 +238,7 @@
     <Compile Include="dto\hdr_Ac_pulisher.cs" />
     <Compile Include="dto\hdr_SmaacademicYear.cs" />
     <Compile Include="dto\hr_empProfile.cs" />
+    <Compile Include="dto\ocuupation.cs" />
     <Compile Include="dto\Qualification.cs" />
     <Compile Include="dto\religion.cs" />
     <Compile Include="dto\sms_Qualification_Type.cs" />
@@ -327,6 +330,9 @@
     <Compile Include="Models\hdr_HR_EmployeeProfile.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\hdr_occupation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\hdr_SMAcademicYear.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -347,6 +353,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mst_region.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mst_user_Entity.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>

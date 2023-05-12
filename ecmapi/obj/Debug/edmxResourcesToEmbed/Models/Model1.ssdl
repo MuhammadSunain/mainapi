@@ -387,6 +387,17 @@
     <Property Name="entityId" Type="int" />
     <Property Name="clientId" Type="int" />
   </EntityType>
+  <EntityType Name="hdr_occupation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar" MaxLength="50" />
+    <Property Name="occupation" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar(max)" />
+    <Property Name="entityId" Type="int" />
+    <Property Name="clientId" Type="int" />
+  </EntityType>
   <EntityType Name="hdr_Sm_studentinfo">
     <Key>
       <PropertyRef Name="Id" />
@@ -453,6 +464,26 @@
     <Property Name="syllabus" Type="nvarchar(max)" />
     <Property Name="entityId" Type="int" />
     <Property Name="cleintid" Type="int" />
+  </EntityType>
+  <EntityType Name="mst_region">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar(max)" />
+    <Property Name="region" Type="varchar(max)" />
+    <Property Name="country" Type="varchar(max)" />
+    <Property Name="entityId" Type="int" />
+    <Property Name="clientId" Type="int" />
+  </EntityType>
+  <EntityType Name="mst_user_Entity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="userId" Type="int" />
+    <Property Name="EntityName" Type="nvarchar(max)" />
+    <Property Name="clientId" Type="int" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -552,17 +583,15 @@
     <Property Name="clientid" Type="int" />
     <Property Name="entitiesname" Type="nvarchar(max)" />
   </EntityType>
-  <Association Name="FK_userEntities_ut_user_auth">
-    <End Role="ut_user_auth" Type="Self.ut_user_auth" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="userEntities" Type="Self.userEntities" Multiplicity="*" />
+  <Association Name="FK_mst_user_Entity_ut_user_auth">
+    <End Role="ut_user_auth" Type="Self.ut_user_auth" Multiplicity="1" />
+    <End Role="mst_user_Entity" Type="Self.mst_user_Entity" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="ut_user_auth">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="userEntities">
-        <PropertyRef Name="userId" />
+      <Dependent Role="mst_user_Entity">
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -594,8 +623,11 @@
     <EntitySet Name="hdr_Ac_Syllabus" EntityType="Self.hdr_Ac_Syllabus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hdr_FOAdmEnquiry" EntityType="Self.hdr_FOAdmEnquiry" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hdr_HR_EmployeeProfile" EntityType="Self.hdr_HR_EmployeeProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hdr_occupation" EntityType="Self.hdr_occupation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hdr_Sm_studentinfo" EntityType="Self.hdr_Sm_studentinfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hdr_SMAcademicYear" EntityType="Self.hdr_SMAcademicYear" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_region" EntityType="Self.mst_region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_user_Entity" EntityType="Self.mst_user_Entity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sms_Qualification" EntityType="Self.Sms_Qualification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SMS_QualificationType" EntityType="Self.SMS_QualificationType" Schema="dbo" store:Type="Tables" />
@@ -605,9 +637,9 @@
     <EntitySet Name="userEntities" EntityType="Self.userEntities" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ut_clients" EntityType="Self.ut_clients" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ut_user_auth" EntityType="Self.ut_user_auth" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_userEntities_ut_user_auth" Association="Self.FK_userEntities_ut_user_auth">
+    <AssociationSet Name="FK_mst_user_Entity_ut_user_auth" Association="Self.FK_mst_user_Entity_ut_user_auth">
       <End Role="ut_user_auth" EntitySet="ut_user_auth" />
-      <End Role="userEntities" EntitySet="userEntities" />
+      <End Role="mst_user_Entity" EntitySet="mst_user_Entity" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

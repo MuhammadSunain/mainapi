@@ -13,7 +13,7 @@ namespace ecmapi.Controllers.Usermanagement
     [RoutePrefix("api/v1/ut_User_Auth")]
     public class ut_userAuthController : BaseController<ut_user_auth>
     {
-        ecomSchoolEntities ut_user_auth = new ecomSchoolEntities();
+        ecomSchoolEntities db = new ecomSchoolEntities();
 
         [HttpPost]
         [Route("Save/{ut_User_Auth}")]
@@ -22,6 +22,7 @@ namespace ecmapi.Controllers.Usermanagement
             try
             {
                 Save(ut_User_Auth);
+                
             }
             catch (Exception)
             {
@@ -34,7 +35,7 @@ namespace ecmapi.Controllers.Usermanagement
         [Route("Getut_Users_auth_ByclientId/{clientid}")]
         public async Task<List<utuserauth>> GetByclientId(int clientid)
         {
-            var query = (from hdr in ut_user_auth.ut_user_auth
+            var query = (from hdr in db.ut_user_auth
                          where
                          (clientid == hdr.clientid)
                          select new utuserauth()

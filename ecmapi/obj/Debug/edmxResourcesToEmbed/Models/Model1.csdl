@@ -34,15 +34,18 @@
     <EntitySet Name="sms_Religion" EntityType="ecomSchoolModel.sms_Religion" />
     <EntitySet Name="States" EntityType="ecomSchoolModel.State" />
     <EntitySet Name="student_category" EntityType="ecomSchoolModel.student_category" />
-    <EntitySet Name="userEntities" EntityType="ecomSchoolModel.userEntity" />
     <EntitySet Name="ut_clients" EntityType="ecomSchoolModel.ut_clients" />
-    <EntitySet Name="ut_user_auth" EntityType="ecomSchoolModel.ut_user_auth" />
-    <AssociationSet Name="FK_userEntities_ut_user_auth" Association="ecomSchoolModel.FK_userEntities_ut_user_auth">
-      <End Role="ut_user_auth" EntitySet="ut_user_auth" />
-      <End Role="userEntity" EntitySet="userEntities" />
-    </AssociationSet>
     <EntitySet Name="hdr_FOAdmEnquiry" EntityType="ecomSchoolModel.hdr_FOAdmEnquiry" />
     <EntitySet Name="hdr_SMAcademicYear" EntityType="ecomSchoolModel.hdr_SMAcademicYear" />
+    <EntitySet Name="userEntities" EntityType="ecomSchoolModel.userEntity" />
+    <EntitySet Name="mst_user_Entity" EntityType="ecomSchoolModel.mst_user_Entity" />
+    <EntitySet Name="ut_user_auth" EntityType="ecomSchoolModel.ut_user_auth" />
+    <AssociationSet Name="FK_mst_user_Entity_ut_user_auth" Association="ecomSchoolModel.FK_mst_user_Entity_ut_user_auth">
+      <End Role="ut_user_auth" EntitySet="ut_user_auth" />
+      <End Role="mst_user_Entity" EntitySet="mst_user_Entity" />
+    </AssociationSet>
+    <EntitySet Name="mst_region" EntityType="ecomSchoolModel.mst_region" />
+    <EntitySet Name="hdr_occupation" EntityType="ecomSchoolModel.hdr_occupation" />
   </EntityContainer>
   <EntityType Name="academicRegister">
     <Key>
@@ -504,16 +507,6 @@
     <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="entityId" Type="Int32" />
   </EntityType>
-  <EntityType Name="userEntity">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="userId" Type="Int32" />
-    <Property Name="EntityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="clientid" Type="Int32" />
-    <NavigationProperty Name="ut_user_auth" Relationship="ecomSchoolModel.FK_userEntities_ut_user_auth" FromRole="userEntity" ToRole="ut_user_auth" />
-  </EntityType>
   <EntityType Name="ut_clients">
     <Key>
       <PropertyRef Name="id" />
@@ -522,39 +515,6 @@
     <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="client" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="ut_user_auth">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Entity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Fullname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="CellNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="UserCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="entityId" Type="Int32" />
-    <Property Name="clientid" Type="Int32" />
-    <Property Name="entitiesname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="userEntities" Relationship="ecomSchoolModel.FK_userEntities_ut_user_auth" FromRole="ut_user_auth" ToRole="userEntity" />
-  </EntityType>
-  <Association Name="FK_userEntities_ut_user_auth">
-    <End Type="ecomSchoolModel.ut_user_auth" Role="ut_user_auth" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="ecomSchoolModel.userEntity" Role="userEntity" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ut_user_auth">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="userEntity">
-        <PropertyRef Name="userId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="hdr_FOAdmEnquiry">
     <Key>
       <PropertyRef Name="Id" />
@@ -611,5 +571,77 @@
     <Property Name="syllabus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="entityId" Type="Int32" />
     <Property Name="cleintid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="userEntity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="EntityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="clientid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="mst_user_Entity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="EntityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="clientId" Type="Int32" />
+    <NavigationProperty Name="ut_user_auth" Relationship="ecomSchoolModel.FK_mst_user_Entity_ut_user_auth" FromRole="mst_user_Entity" ToRole="ut_user_auth" />
+  </EntityType>
+  <EntityType Name="ut_user_auth">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Entity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fullname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CellNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="entityId" Type="Int32" />
+    <Property Name="clientid" Type="Int32" />
+    <Property Name="entitiesname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="mst_user_Entity" Relationship="ecomSchoolModel.FK_mst_user_Entity_ut_user_auth" FromRole="ut_user_auth" ToRole="mst_user_Entity" />
+  </EntityType>
+  <Association Name="FK_mst_user_Entity_ut_user_auth">
+    <End Type="ecomSchoolModel.ut_user_auth" Role="ut_user_auth" Multiplicity="1" />
+    <End Type="ecomSchoolModel.mst_user_Entity" Role="mst_user_Entity" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ut_user_auth">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="mst_user_Entity">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="mst_region">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="region" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="entityId" Type="Int32" />
+    <Property Name="clientId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="hdr_occupation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="entityId" Type="Int32" />
+    <Property Name="clientId" Type="Int32" />
   </EntityType>
 </Schema>

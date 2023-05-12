@@ -494,41 +494,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="userEntities">
-      <EntityTypeMapping TypeName="ecomSchoolModel.userEntity">
-        <MappingFragment StoreEntitySet="userEntities">
-          <ScalarProperty Name="clientid" ColumnName="clientid" />
-          <ScalarProperty Name="EntityName" ColumnName="EntityName" />
-          <ScalarProperty Name="userId" ColumnName="userId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ut_clients">
       <EntityTypeMapping TypeName="ecomSchoolModel.ut_clients">
         <MappingFragment StoreEntitySet="ut_clients">
           <ScalarProperty Name="client" ColumnName="client" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ut_user_auth">
-      <EntityTypeMapping TypeName="ecomSchoolModel.ut_user_auth">
-        <MappingFragment StoreEntitySet="ut_user_auth">
-          <ScalarProperty Name="entitiesname" ColumnName="entitiesname" />
-          <ScalarProperty Name="clientid" ColumnName="clientid" />
-          <ScalarProperty Name="entityId" ColumnName="entityId" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Role" ColumnName="Role" />
-          <ScalarProperty Name="UserCategory" ColumnName="UserCategory" />
-          <ScalarProperty Name="CellNo" ColumnName="CellNo" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Entity" ColumnName="Entity" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -586,6 +557,69 @@
           <ScalarProperty Name="startdate" ColumnName="startdate" />
           <ScalarProperty Name="academicyear" ColumnName="academicyear" />
           <ScalarProperty Name="academicregister" ColumnName="academicregister" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userEntities">
+      <EntityTypeMapping TypeName="ecomSchoolModel.userEntity">
+        <MappingFragment StoreEntitySet="userEntities">
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_user_Entity">
+      <EntityTypeMapping TypeName="ecomSchoolModel.mst_user_Entity">
+        <MappingFragment StoreEntitySet="mst_user_Entity">
+          <ScalarProperty Name="clientId" ColumnName="clientId" />
+          <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ut_user_auth">
+      <EntityTypeMapping TypeName="ecomSchoolModel.ut_user_auth">
+        <MappingFragment StoreEntitySet="ut_user_auth">
+          <ScalarProperty Name="entitiesname" ColumnName="entitiesname" />
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="entityId" ColumnName="entityId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="UserCategory" ColumnName="UserCategory" />
+          <ScalarProperty Name="CellNo" ColumnName="CellNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Entity" ColumnName="Entity" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mst_region">
+      <EntityTypeMapping TypeName="ecomSchoolModel.mst_region">
+        <MappingFragment StoreEntitySet="mst_region">
+          <ScalarProperty Name="clientId" ColumnName="clientId" />
+          <ScalarProperty Name="entityId" ColumnName="entityId" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hdr_occupation">
+      <EntityTypeMapping TypeName="ecomSchoolModel.hdr_occupation">
+        <MappingFragment StoreEntitySet="hdr_occupation">
+          <ScalarProperty Name="clientId" ColumnName="clientId" />
+          <ScalarProperty Name="entityId" ColumnName="entityId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="occupation" ColumnName="occupation" />
           <ScalarProperty Name="code" ColumnName="code" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
