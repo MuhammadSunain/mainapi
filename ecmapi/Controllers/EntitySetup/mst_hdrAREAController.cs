@@ -31,5 +31,24 @@ namespace ecmapi.Controllers.EntitySetup
             }
             return Ok(area);
         }
+        [HttpGet]
+        [Route("getMst_HDR_AREA_entityWise/{id}")]
+        public async Task<List<mstArea>> getMst_HDR_AREA_entityWise(int id)
+        {
+            var query = (from hdr in db.mst_hdrArea
+                         where
+                         (id == hdr.entityId)
+                         select new mstArea()
+                         {
+                             Id = hdr.Id,
+                             code = hdr.code,
+                             country = hdr.country,
+                             state = hdr.state,
+                             city = hdr.city,
+                             areaname = hdr.areaname,
+                             entityId = hdr.entityId
+                         }).ToList();
+            return query;
+        }
     }
 }

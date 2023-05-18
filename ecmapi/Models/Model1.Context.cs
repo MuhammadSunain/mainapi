@@ -66,5 +66,8 @@ namespace ecmapi.Models
         public virtual DbSet<ut_user_auth> ut_user_auth { get; set; }
         public virtual DbSet<mst_region> mst_region { get; set; }
         public virtual DbSet<hdr_occupation> hdr_occupation { get; set; }
+        public virtual DbSet<mst_hdr_site> mst_hdr_site { get; set; }
+        public virtual DbSet<mst_hdrArea> mst_hdrArea { get; set; }
+        public virtual DbSet<SMStuAttendance> SMStuAttendances { get; set; }
     }
 }

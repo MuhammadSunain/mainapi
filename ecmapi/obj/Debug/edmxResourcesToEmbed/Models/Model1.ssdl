@@ -465,6 +465,32 @@
     <Property Name="entityId" Type="int" />
     <Property Name="cleintid" Type="int" />
   </EntityType>
+  <EntityType Name="mst_hdr_site">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar(max)" />
+    <Property Name="sitename" Type="nvarchar(max)" />
+    <Property Name="sitetype" Type="nvarchar(max)" />
+    <Property Name="sitefor" Type="nvarchar(max)" />
+    <Property Name="region" Type="nvarchar(max)" />
+    <Property Name="entityId" Type="int" />
+    <Property Name="clientId" Type="int" />
+  </EntityType>
+  <EntityType Name="mst_hdrArea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="varchar(max)" />
+    <Property Name="country" Type="varchar(max)" />
+    <Property Name="state" Type="varchar(max)" />
+    <Property Name="city" Type="varchar(max)" />
+    <Property Name="areaname" Type="varchar(max)" />
+    <Property Name="entityId" Type="int" />
+    <Property Name="clientId" Type="int" />
+  </EntityType>
   <EntityType Name="mst_region">
     <Key>
       <PropertyRef Name="Id" />
@@ -526,6 +552,18 @@
     <Property Name="Religion" Type="nvarchar(max)" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="entityid" Type="int" />
+  </EntityType>
+  <EntityType Name="SMStuAttendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stdid" Type="int" />
+    <Property Name="courseid" Type="nvarchar(max)" />
+    <Property Name="sectionid" Type="nvarchar(max)" />
+    <Property Name="attenDate" Type="nvarchar(max)" />
+    <Property Name="attendactivity" Type="nvarchar(max)" />
+    <Property Name="entityId" Type="int" />
   </EntityType>
   <EntityType Name="States">
     <Key>
@@ -626,12 +664,15 @@
     <EntitySet Name="hdr_occupation" EntityType="Self.hdr_occupation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hdr_Sm_studentinfo" EntityType="Self.hdr_Sm_studentinfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hdr_SMAcademicYear" EntityType="Self.hdr_SMAcademicYear" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_hdr_site" EntityType="Self.mst_hdr_site" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mst_hdrArea" EntityType="Self.mst_hdrArea" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="mst_region" EntityType="Self.mst_region" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="mst_user_Entity" EntityType="Self.mst_user_Entity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sms_Qualification" EntityType="Self.Sms_Qualification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SMS_QualificationType" EntityType="Self.SMS_QualificationType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sms_Religion" EntityType="Self.sms_Religion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMStuAttendance" EntityType="Self.SMStuAttendance" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student_category" EntityType="Self.student_category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userEntities" EntityType="Self.userEntities" Schema="dbo" store:Type="Tables" />

@@ -46,6 +46,9 @@
     </AssociationSet>
     <EntitySet Name="mst_region" EntityType="ecomSchoolModel.mst_region" />
     <EntitySet Name="hdr_occupation" EntityType="ecomSchoolModel.hdr_occupation" />
+    <EntitySet Name="mst_hdr_site" EntityType="ecomSchoolModel.mst_hdr_site" />
+    <EntitySet Name="mst_hdrArea" EntityType="ecomSchoolModel.mst_hdrArea" />
+    <EntitySet Name="SMStuAttendances" EntityType="ecomSchoolModel.SMStuAttendance" />
   </EntityContainer>
   <EntityType Name="academicRegister">
     <Key>
@@ -643,5 +646,43 @@
     <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="entityId" Type="Int32" />
     <Property Name="clientId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="mst_hdr_site">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sitename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sitetype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sitefor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="entityId" Type="Int32" />
+    <Property Name="clientId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="mst_hdrArea">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="areaname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="entityId" Type="Int32" />
+    <Property Name="clientId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SMStuAttendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stdid" Type="Int32" />
+    <Property Name="courseid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sectionid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="attenDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="attendactivity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="entityId" Type="Int32" />
   </EntityType>
 </Schema>

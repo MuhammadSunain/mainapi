@@ -47,6 +47,9 @@
         <AssociationConnector Association="ecomSchoolModel.FK_mst_user_Entity_ut_user_auth" />
         <EntityTypeShape EntityType="ecomSchoolModel.mst_region" Width="1.5" PointX="17.375" PointY="15.75" />
         <EntityTypeShape EntityType="ecomSchoolModel.hdr_occupation" Width="1.5" PointX="0.75" PointY="18.75" />
+        <EntityTypeShape EntityType="ecomSchoolModel.mst_hdr_site" Width="1.5" PointX="7.375" PointY="18.75" />
+        <EntityTypeShape EntityType="ecomSchoolModel.mst_hdrArea" Width="1.5" PointX="17.375" PointY="18.75" />
+        <EntityTypeShape EntityType="ecomSchoolModel.SMStuAttendance" Width="1.5" PointX="19.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -56,5 +56,6 @@ namespace ecmapi.dto
         public string emergencypersonname { get; internal set; }
         public string emergencycnic { get; internal set; }
         public string emergencycontactno { get; internal set; }
+        public int? entityId { get; internal set; }
     }
 }

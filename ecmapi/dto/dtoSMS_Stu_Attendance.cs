@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace ecmapi.dto
+{
+    public class dtoSMS_Stu_Attendance
+    {
+        public int? entityId { get; internal set; }
+        public string attendactivity { get; internal set; }
+        public string attenDate { get; internal set; }
+        public string sectionid { get; internal set; }
+        public string courseid { get; internal set; }
+        public int? stdid { get; internal set; }
+        public int Id { get; internal set; }
+    }
+}
