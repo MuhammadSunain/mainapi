@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace ecmapi.Controllers
@@ -38,6 +39,12 @@ namespace ecmapi.Controllers
                 error = "No Record Found to Delete";
             }
             return error;
+        }
+        public async Task<T> UpdateAsync(T Item)
+        {
+            var result = ecom.Set<T>().Add(Item);
+            ecom.Entry<T>(result).State = EntityState.Modified;
+            return result;
         }
     }
 }

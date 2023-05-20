@@ -48,22 +48,31 @@ namespace ecmapi.Controllers.EntitySetup
                          }).ToList();
             return query;
         }
-        //[HttpPost]
-        //[Route("save/{image}")]
-        //public IHttpActionResult UploadFile([FromBody] IFormatProvider image)
-        //{
-        //    if(image == null)
-        //    {
-        //        return BadRequest("Invalid file");
-        //    }
-        //    var filename = Path.GetFileName(image.FileName);
-        //    var filePath = Path.Combine(_uploadPath, filename);
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<academicRegister>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
 
-        //    using (var stream = new FileStream(filePath, FileMode.Create))
-        //    {
-        //        image.CopyTo(stream);
-        //    }
-        //    return Ok();
-        //}
+        [HttpPut]
+        [Route("update_academicregisterData/{academicRegisterid}/{obj}")]
+        public IHttpActionResult update(int academicRegisterid, academicRegister obj)
+        {
+            var dto = academicregister.academicRegisters.FirstOrDefault(n => n.Id == academicRegisterid);
+            if (dto != null)
+            {
+                dto.code = obj.code;
+                dto.academicregister1 = obj.academicregister1;
+                dto.description = obj.description;
+                academicregister.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
     }
 }

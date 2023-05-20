@@ -50,5 +50,34 @@ namespace ecmapi.Controllers.EntitySetup
                          }).ToList();
             return query;
         }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<hdr_SMAcademicYear>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("update_academicyearData/{academicYearid}/{obj}")]
+        public IHttpActionResult update(int academicYearid, hdr_SMAcademicYear obj)
+        {
+            var dto = hdr_smacademicYear.hdr_SMAcademicYear.FirstOrDefault(n => n.Id == academicYearid);
+            if (dto != null)
+            {
+                dto.code = obj.code;
+                dto.academicregister = obj.academicregister;
+                dto.academicyear = obj.academicyear;
+                dto.startdate = obj.startdate;
+                dto.enddate = obj.enddate;
+                dto.syllabus = obj.syllabus;
+                hdr_smacademicYear.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
     }
 }
