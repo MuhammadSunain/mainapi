@@ -66,5 +66,49 @@ namespace ecmapi.Controllers.HR
                          }).ToList();
             return query;
         }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<hdr_HR_EmployeeProfile>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+        [HttpPut]
+        [Route("update_hdr_HR_employeeData/{employeeid}/{obj}")]
+        public IHttpActionResult update(int employeeid, hdr_HR_EmployeeProfile obj)
+        {
+            var dto = hdr_HR_EmployeeData.hdr_HR_EmployeeProfile.FirstOrDefault(n => n.Id == employeeid);
+            if (dto != null)
+            {
+                dto.empid = obj.empid;
+                dto.shrotcode = obj.shrotcode;
+                dto.machinecode = obj.machinecode;
+                dto.joindate = obj.joindate;
+                dto.firstname = obj.firstname;
+                dto.lastname = obj.lastname;
+                dto.dateofbirth = obj.dateofbirth;
+                dto.Gender = obj.Gender;
+                dto.bloodgroup = obj.bloodgroup;
+                dto.CNIC = obj.CNIC;
+                dto.birthcountry = obj.birthcountry;
+                dto.birthcity = obj.birthcity;
+                dto.nationality = obj.nationality;
+                dto.religion = obj.religion;
+                dto.email = obj.email;
+                dto.contactno = obj.contactno;
+                dto.whatsappno = obj.whatsappno;
+                dto.emptype = obj.emptype;
+                dto.empcategory = obj.empcategory;
+                dto.empdepartment = obj.empdepartment;
+                dto.empdestination = obj.empdestination;
+                dto.site = obj.site;
+                hdr_HR_EmployeeData.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
     }
 }

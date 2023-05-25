@@ -48,7 +48,7 @@ namespace ecmapi.Controllers.EntitySetup
                              syllabus = hdr.syllabus,
                              entityId = hdr.entityId,
                          }).ToList();
-            return query;
+           return query;
         }
         [HttpDelete]
         [Route("Delete/{id}")]

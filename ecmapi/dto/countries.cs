@@ -10,8 +10,8 @@ namespace ecmapi.dto
         public int Id { get; internal set; }
         public string Code { get; internal set; }
         public string Country { get; internal set; }
-        public string IsoCode { get; internal set; }
-        public string DialCode { get; internal set; }
+        public string isoCode { get; internal set; }
+        public string dialCode { get; internal set; }
         public string Description { get; internal set; }
     }
 }

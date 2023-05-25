@@ -46,11 +46,38 @@ namespace ecmapi.Controllers.SS
                          {
                              Id = hdr.Id,
                              Code = hdr.Code,
-                             QualificationType = hdr.qualificationtypeid,
+                             qualificationtypeid = hdr.qualificationtypeid,
                              qualification = hdr.qualification,
                              Description = hdr.Description
                          }).ToList();
             return query;
+        }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<Sms_Qualification>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+        [HttpPut]
+        [Route("update_qualificationData/{qualificationid}/{obj}")]
+        public IHttpActionResult update(int qualificationid, Sms_Qualification obj)
+        {
+            var dto = Qualifications.Sms_Qualification.FirstOrDefault(n => n.Id == qualificationid);
+            if (dto != null)
+            {
+                dto.Code = obj.Code;
+                dto.qualification = obj.qualification;
+                dto.qualificationtypeid = obj.qualificationtypeid;
+                dto.Description = obj.Description;
+                Qualifications.SaveChanges();
+            }
+            return Ok("record updated successfully...");
         }
     }
 }

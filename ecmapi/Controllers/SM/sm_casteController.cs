@@ -53,5 +53,30 @@ namespace ecmapi.Controllers.SM
                          }).ToList();
             return query;
         }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<Caste>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+        [HttpPut]
+        [Route("update_casteData/{casteid}/{obj}")]
+        public IHttpActionResult update(int casteid, Caste obj)
+        {
+            var dto = hdr_SM_Caste.Castes.FirstOrDefault(n => n.Id == casteid);
+            if (dto != null)
+            {
+                dto.Code = obj.Code;
+                dto.Caste1 = obj.Caste1;
+                dto.description = obj.description;
+                hdr_SM_Caste.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
     }
 }

@@ -50,5 +50,35 @@ namespace ecmapi.Controllers.EntitySetup
                          }).ToList();
             return query;
         }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult delete(int id)
+        {
+            var item = Delete<mst_hdr_site>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("update_siteData/{siteid}/{obj}")]
+        public IHttpActionResult update(int siteid, mst_hdr_site obj)
+        {
+            var dto = db.mst_hdr_site.FirstOrDefault(n => n.Id == siteid);
+            if (dto != null)
+            {
+                dto.code = obj.code;
+                dto.sitename = obj.sitename;
+                dto.sitetype = obj.sitetype;
+                dto.sitefor = obj.sitefor;
+                dto.region = obj.region;
+                db.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
+
     }
 }

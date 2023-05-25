@@ -56,5 +56,33 @@ namespace ecmapi.Controllers.EntitySetup
                          }).ToList();
             return query;
         }
+        
+        [HttpDelete]
+        [Route("Delete/{regionid}")]
+        public IHttpActionResult delete(int regionid)
+        {
+            var item = Delete<mst_region>(regionid);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("update_regionData/{regionid}/{obj}")]
+        public IHttpActionResult update(int regionid, mst_region obj)
+        {
+            var dto = dta.mst_region.FirstOrDefault(n => n.Id == regionid);
+            if (dto != null)
+            {
+                dto.code = obj.code;
+                dto.region = obj.region;
+                dto.country = obj.country;
+                dta.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
+
     }
 }

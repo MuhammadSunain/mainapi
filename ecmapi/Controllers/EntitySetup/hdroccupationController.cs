@@ -47,5 +47,32 @@ namespace ecmapi.Controllers.EntitySetup
                        }).ToList();
             return dto;
         }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<hdr_occupation>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("update_hdr_occupationData/{occupationid}/{obj}")]
+        public IHttpActionResult update(int occupationid, hdr_occupation obj)
+        {
+            var dto = db.hdr_occupation.FirstOrDefault(n => n.Id == occupationid);
+            if (dto != null)
+            {
+                dto.code = obj.code;
+                dto.occupation = obj.occupation;
+                dto.description = obj.description;
+                db.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
     }
 }

@@ -197,6 +197,7 @@
     <Compile Include="Controllers\FRD\fr_setup_purposeController.cs" />
     <Compile Include="Controllers\FRD\fr_setup_sourceController.cs" />
     <Compile Include="Controllers\FRD\hdr_FOAdmEnquiryController.cs" />
+    <Compile Include="Controllers\FRD\hdr_SMBatchController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HR\hdr_employeeProfileController.cs" />
     <Compile Include="Controllers\SM\hdr_sm_studuentInfoController.cs" />
@@ -242,6 +243,7 @@
     <Compile Include="dto\hdr_Ac_booktype.cs" />
     <Compile Include="dto\hdr_Ac_pulisher.cs" />
     <Compile Include="dto\hdr_SmaacademicYear.cs" />
+    <Compile Include="dto\hdr_sm_batch.cs" />
     <Compile Include="dto\hr_empProfile.cs" />
     <Compile Include="dto\mstArea.cs" />
     <Compile Include="dto\mstregion.cs" />
@@ -343,6 +345,9 @@
     <Compile Include="Models\hdr_SMAcademicYear.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\hdr_SMBatch.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\hdr_Sm_studentinfo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -377,6 +382,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SMStuAttendance.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SMStudentATTENDENCE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sms_Qualification.cs">

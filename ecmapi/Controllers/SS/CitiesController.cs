@@ -53,5 +53,33 @@ namespace ecmapi.Controllers.SS
                          }).ToList();
             return query;
         }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult delete(int id)
+        {
+            var item = Delete<City>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("update_cityData/{cityid}/{obj}")]
+        public IHttpActionResult update(int cityid, City obj)
+        {
+            var dto = Ut_City.Cities.FirstOrDefault(n => n.Id == cityid);
+            if (dto != null)
+            {
+                dto.Code = obj.Code;
+                dto.City1 = obj.City1;
+                dto.State = obj.State;
+                dto.Country = obj.Country;
+                Ut_City.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
     }
 }

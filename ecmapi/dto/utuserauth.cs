@@ -9,8 +9,8 @@ namespace ecmapi.dto
     {
         public int Id { get; internal set; }
         public string Entity { get; internal set; }
-        public string Username { get; internal set; }
-        public string Password { get; internal set; }
+        public string username { get; internal set; }
+        public string pass { get; internal set; }
         public string Fullname { get; internal set; }
         public string Email { get; internal set; }
         public string CellNo { get; internal set; }

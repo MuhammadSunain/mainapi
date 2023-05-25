@@ -465,6 +465,28 @@
     <Property Name="entityId" Type="int" />
     <Property Name="cleintid" Type="int" />
   </EntityType>
+  <EntityType Name="hdr_SMBatch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bookno" Type="nvarchar(max)" />
+    <Property Name="bookdate" Type="nvarchar(max)" />
+    <Property Name="booktype" Type="nvarchar(max)" />
+    <Property Name="boojname" Type="nvarchar(max)" />
+    <Property Name="status" Type="nvarchar(max)" />
+    <Property Name="academicyearid" Type="nvarchar(max)" />
+    <Property Name="startdate" Type="nvarchar(max)" />
+    <Property Name="enddate" Type="nvarchar(max)" />
+    <Property Name="prefix" Type="nvarchar(max)" />
+    <Property Name="counter" Type="nvarchar(max)" />
+    <Property Name="masklength" Type="nvarchar(max)" />
+    <Property Name="totalseats" Type="nvarchar(max)" />
+    <Property Name="enrolled" Type="nvarchar(max)" />
+    <Property Name="available" Type="nvarchar(max)" />
+    <Property Name="entityId" Type="int" />
+    <Property Name="clientId" Type="int" />
+  </EntityType>
   <EntityType Name="mst_hdr_site">
     <Key>
       <PropertyRef Name="Id" />
@@ -562,6 +584,21 @@
     <Property Name="courseid" Type="nvarchar(max)" />
     <Property Name="sectionid" Type="nvarchar(max)" />
     <Property Name="attenDate" Type="nvarchar(max)" />
+    <Property Name="attendactivity" Type="nvarchar(max)" />
+    <Property Name="entityId" Type="int" />
+  </EntityType>
+  <EntityType Name="SMStudentATTENDENCE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stdid" Type="int" />
+    <Property Name="stdname" Type="nvarchar(max)" />
+    <Property Name="courseid" Type="nvarchar(max)" />
+    <Property Name="sectionid" Type="nvarchar(max)" />
+    <Property Name="gender" Type="nvarchar(max)" />
+    <Property Name="attenDate" Type="nvarchar(max)" />
+    <Property Name="attenTime" Type="nvarchar(max)" />
     <Property Name="attendactivity" Type="nvarchar(max)" />
     <Property Name="entityId" Type="int" />
   </EntityType>
@@ -664,6 +701,7 @@
     <EntitySet Name="hdr_occupation" EntityType="Self.hdr_occupation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hdr_Sm_studentinfo" EntityType="Self.hdr_Sm_studentinfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hdr_SMAcademicYear" EntityType="Self.hdr_SMAcademicYear" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hdr_SMBatch" EntityType="Self.hdr_SMBatch" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="mst_hdr_site" EntityType="Self.mst_hdr_site" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="mst_hdrArea" EntityType="Self.mst_hdrArea" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="mst_region" EntityType="Self.mst_region" Schema="dbo" store:Type="Tables" />
@@ -673,6 +711,7 @@
     <EntitySet Name="SMS_QualificationType" EntityType="Self.SMS_QualificationType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sms_Religion" EntityType="Self.sms_Religion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SMStuAttendance" EntityType="Self.SMStuAttendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMStudentATTENDENCE" EntityType="Self.SMStudentATTENDENCE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="student_category" EntityType="Self.student_category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userEntities" EntityType="Self.userEntities" Schema="dbo" store:Type="Tables" />

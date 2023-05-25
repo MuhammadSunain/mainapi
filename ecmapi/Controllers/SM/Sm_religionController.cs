@@ -51,5 +51,30 @@ namespace ecmapi.Controllers.SM
                          }).ToList();
             return query;
         }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<sms_Religion>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+        [HttpPut]
+        [Route("update_ReligionData/{religionid}/{obj}")]
+        public IHttpActionResult update(int religionid, sms_Religion obj)
+        {
+            var dto = Religion.sms_Religion.FirstOrDefault(n => n.Id == religionid);
+            if (dto != null)
+            {
+                dto.Code = obj.Code;
+                dto.Religion = obj.Religion;
+                dto.Description = obj.Description;
+                Religion.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
     }
 }

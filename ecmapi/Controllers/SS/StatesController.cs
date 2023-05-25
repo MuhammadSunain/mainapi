@@ -47,7 +47,7 @@ namespace ecmapi.Controllers.SS
                              Id = hdr.Id,
                              Code = hdr.Code,
                              State = hdr.State1,
-                             Country = hdr.Country,
+                             country = hdr.Country,
                              Description = hdr.Description
                          }).ToList();
             return query;
@@ -64,10 +64,35 @@ namespace ecmapi.Controllers.SS
                              Id = hdr.Id,
                              Code = hdr.Code,
                              State = hdr.State1,
-                             Country = hdr.Country,
+                             country = hdr.Country,
                              Description = hdr.Description
                          }).ToList();
             return query;
+        }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult delete(int id)
+        {
+            var item = Delete<State>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+        [HttpPut]
+        [Route("update_stateData/{stateid}/{obj}")]
+        public IHttpActionResult update(int stateid, State obj)
+        {
+            var dto = Ut_State.States.FirstOrDefault(n => n.Id == stateid);
+            if (dto != null)
+            {
+                dto.Code = obj.Code;
+                dto.State1 = obj.State1;
+                dto.Country = obj.Country;
+                Ut_State.SaveChanges();
+            }
+            return Ok("record updated successfully...");
         }
     }
 }

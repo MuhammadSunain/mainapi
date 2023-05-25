@@ -42,8 +42,8 @@ namespace ecmapi.Controllers.Usermanagement
                          {
                              Id = hdr.Id,
                              Entity = hdr.Entity,
-                             Username = hdr.Username,
-                             Password = hdr.Password,
+                             username = hdr.Username,
+                             pass = hdr.Password,
                              Fullname = hdr.Fullname,
                              Email = hdr.Email,
                              CellNo = hdr.CellNo,
@@ -54,5 +54,37 @@ namespace ecmapi.Controllers.Usermanagement
                          }).ToList();
             return query;
         }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<ut_user_auth>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("update_userData/{userid}/{obj}")]
+        public IHttpActionResult update(int userid, ut_user_auth obj)
+        {
+            var dto = db.ut_user_auth.FirstOrDefault(n => n.Id == userid);
+            if (dto != null)
+            {
+                dto.Username = obj.Username;
+                dto.Password = obj.Password;
+                dto.Fullname = obj.Fullname;
+                dto.Email = obj.Email;
+                dto.CellNo = obj.CellNo;
+                dto.UserCategory = obj.UserCategory;
+                dto.Role = obj.Role;
+                dto.Status = obj.Status;
+                db.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
+
     }
 }

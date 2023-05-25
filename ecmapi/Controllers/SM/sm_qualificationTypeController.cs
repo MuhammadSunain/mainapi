@@ -2,6 +2,7 @@
 using ecmapi.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -39,10 +40,35 @@ namespace ecmapi.Controllers.SM
                          {
                              Id = hdr.Id,
                              Code = hdr.Code,
-                             QualificationType = hdr.QualificationType,
+                             qualificationtype = hdr.QualificationType,
                              Description = hdr.Dexcription,
                          }).ToList();
             return query;
+        }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<SMS_QualificationType>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+        [HttpPut]
+        [Route("update_qualificationTypeData/{qualificationtypeid}/{obj}")]
+        public IHttpActionResult update(int qualificationtypeid, SMS_QualificationType obj)
+        {
+            var dto = QualificationType.SMS_QualificationType.FirstOrDefault(n => n.Id == qualificationtypeid);
+            if (dto != null)
+            {
+                dto.Code = obj.Code;
+                dto.QualificationType = obj.QualificationType;
+                dto.Dexcription = obj.Dexcription;
+                QualificationType.SaveChanges();
+            }
+            return Ok("record updated successfully...");
         }
     }
 }

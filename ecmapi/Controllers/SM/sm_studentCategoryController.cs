@@ -51,5 +51,30 @@ namespace ecmapi.Controllers.SM
                          }).ToList();
             return query;
         }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<student_category>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+        [HttpPut]
+        [Route("update_student_categoryData/{stdcatid}/{obj}")]
+        public IHttpActionResult update(int stdcatid, student_category obj)
+        {
+            var dto = stdcategory.student_category.FirstOrDefault(n => n.Id == stdcatid);
+            if (dto != null)
+            {
+                dto.Code = obj.Code;
+                dto.studentcategory = obj.studentcategory;
+                dto.description = obj.description;
+                stdcategory.SaveChanges();
+            }
+            return Ok("record updated successfully...");
+        }
     }
 }

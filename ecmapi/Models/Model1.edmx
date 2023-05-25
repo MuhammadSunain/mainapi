@@ -470,6 +470,28 @@
           <Property Name="entityId" Type="int" />
           <Property Name="cleintid" Type="int" />
         </EntityType>
+        <EntityType Name="hdr_SMBatch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bookno" Type="nvarchar(max)" />
+          <Property Name="bookdate" Type="nvarchar(max)" />
+          <Property Name="booktype" Type="nvarchar(max)" />
+          <Property Name="boojname" Type="nvarchar(max)" />
+          <Property Name="status" Type="nvarchar(max)" />
+          <Property Name="academicyearid" Type="nvarchar(max)" />
+          <Property Name="startdate" Type="nvarchar(max)" />
+          <Property Name="enddate" Type="nvarchar(max)" />
+          <Property Name="prefix" Type="nvarchar(max)" />
+          <Property Name="counter" Type="nvarchar(max)" />
+          <Property Name="masklength" Type="nvarchar(max)" />
+          <Property Name="totalseats" Type="nvarchar(max)" />
+          <Property Name="enrolled" Type="nvarchar(max)" />
+          <Property Name="available" Type="nvarchar(max)" />
+          <Property Name="entityId" Type="int" />
+          <Property Name="clientId" Type="int" />
+        </EntityType>
         <EntityType Name="mst_hdr_site">
           <Key>
             <PropertyRef Name="Id" />
@@ -567,6 +589,21 @@
           <Property Name="courseid" Type="nvarchar(max)" />
           <Property Name="sectionid" Type="nvarchar(max)" />
           <Property Name="attenDate" Type="nvarchar(max)" />
+          <Property Name="attendactivity" Type="nvarchar(max)" />
+          <Property Name="entityId" Type="int" />
+        </EntityType>
+        <EntityType Name="SMStudentATTENDENCE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stdid" Type="int" />
+          <Property Name="stdname" Type="nvarchar(max)" />
+          <Property Name="courseid" Type="nvarchar(max)" />
+          <Property Name="sectionid" Type="nvarchar(max)" />
+          <Property Name="gender" Type="nvarchar(max)" />
+          <Property Name="attenDate" Type="nvarchar(max)" />
+          <Property Name="attenTime" Type="nvarchar(max)" />
           <Property Name="attendactivity" Type="nvarchar(max)" />
           <Property Name="entityId" Type="int" />
         </EntityType>
@@ -669,6 +706,7 @@
           <EntitySet Name="hdr_occupation" EntityType="Self.hdr_occupation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hdr_Sm_studentinfo" EntityType="Self.hdr_Sm_studentinfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hdr_SMAcademicYear" EntityType="Self.hdr_SMAcademicYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hdr_SMBatch" EntityType="Self.hdr_SMBatch" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mst_hdr_site" EntityType="Self.mst_hdr_site" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mst_hdrArea" EntityType="Self.mst_hdrArea" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mst_region" EntityType="Self.mst_region" Schema="dbo" store:Type="Tables" />
@@ -678,6 +716,7 @@
           <EntitySet Name="SMS_QualificationType" EntityType="Self.SMS_QualificationType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sms_Religion" EntityType="Self.sms_Religion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SMStuAttendance" EntityType="Self.SMStuAttendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SMStudentATTENDENCE" EntityType="Self.SMStudentATTENDENCE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="student_category" EntityType="Self.student_category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="userEntities" EntityType="Self.userEntities" Schema="dbo" store:Type="Tables" />
@@ -718,29 +757,31 @@
           <EntitySet Name="hdr_AC_Subject" EntityType="ecomSchoolModel.hdr_AC_Subject" />
           <EntitySet Name="hdr_Ac_subjectType" EntityType="ecomSchoolModel.hdr_Ac_subjectType" />
           <EntitySet Name="hdr_Ac_Syllabus" EntityType="ecomSchoolModel.hdr_Ac_Syllabus" />
+          <EntitySet Name="hdr_FOAdmEnquiry" EntityType="ecomSchoolModel.hdr_FOAdmEnquiry" />
           <EntitySet Name="hdr_HR_EmployeeProfile" EntityType="ecomSchoolModel.hdr_HR_EmployeeProfile" />
+          <EntitySet Name="hdr_occupation" EntityType="ecomSchoolModel.hdr_occupation" />
           <EntitySet Name="hdr_Sm_studentinfo" EntityType="ecomSchoolModel.hdr_Sm_studentinfo" />
+          <EntitySet Name="hdr_SMAcademicYear" EntityType="ecomSchoolModel.hdr_SMAcademicYear" />
+          <EntitySet Name="mst_hdr_site" EntityType="ecomSchoolModel.mst_hdr_site" />
+          <EntitySet Name="mst_hdrArea" EntityType="ecomSchoolModel.mst_hdrArea" />
+          <EntitySet Name="mst_region" EntityType="ecomSchoolModel.mst_region" />
+          <EntitySet Name="mst_user_Entity" EntityType="ecomSchoolModel.mst_user_Entity" />
           <EntitySet Name="Roles" EntityType="ecomSchoolModel.Role" />
           <EntitySet Name="Sms_Qualification" EntityType="ecomSchoolModel.Sms_Qualification" />
           <EntitySet Name="SMS_QualificationType" EntityType="ecomSchoolModel.SMS_QualificationType" />
           <EntitySet Name="sms_Religion" EntityType="ecomSchoolModel.sms_Religion" />
+          <EntitySet Name="SMStuAttendances" EntityType="ecomSchoolModel.SMStuAttendance" />
           <EntitySet Name="States" EntityType="ecomSchoolModel.State" />
           <EntitySet Name="student_category" EntityType="ecomSchoolModel.student_category" />
-          <EntitySet Name="ut_clients" EntityType="ecomSchoolModel.ut_clients" />
-          <EntitySet Name="hdr_FOAdmEnquiry" EntityType="ecomSchoolModel.hdr_FOAdmEnquiry" />
-          <EntitySet Name="hdr_SMAcademicYear" EntityType="ecomSchoolModel.hdr_SMAcademicYear" />
           <EntitySet Name="userEntities" EntityType="ecomSchoolModel.userEntity" />
-          <EntitySet Name="mst_user_Entity" EntityType="ecomSchoolModel.mst_user_Entity" />
+          <EntitySet Name="ut_clients" EntityType="ecomSchoolModel.ut_clients" />
           <EntitySet Name="ut_user_auth" EntityType="ecomSchoolModel.ut_user_auth" />
           <AssociationSet Name="FK_mst_user_Entity_ut_user_auth" Association="ecomSchoolModel.FK_mst_user_Entity_ut_user_auth">
             <End Role="ut_user_auth" EntitySet="ut_user_auth" />
             <End Role="mst_user_Entity" EntitySet="mst_user_Entity" />
           </AssociationSet>
-          <EntitySet Name="mst_region" EntityType="ecomSchoolModel.mst_region" />
-          <EntitySet Name="hdr_occupation" EntityType="ecomSchoolModel.hdr_occupation" />
-          <EntitySet Name="mst_hdr_site" EntityType="ecomSchoolModel.mst_hdr_site" />
-          <EntitySet Name="mst_hdrArea" EntityType="ecomSchoolModel.mst_hdrArea" />
-          <EntitySet Name="SMStuAttendances" EntityType="ecomSchoolModel.SMStuAttendance" />
+          <EntitySet Name="SMStudentATTENDENCEs" EntityType="ecomSchoolModel.SMStudentATTENDENCE" />
+          <EntitySet Name="hdr_SMBatch" EntityType="ecomSchoolModel.hdr_SMBatch" />
         </EntityContainer>
         <EntityType Name="academicRegister">
           <Key>
@@ -1056,6 +1097,49 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="entityId" Type="Int32" />
         </EntityType>
+        <EntityType Name="hdr_FOAdmEnquiry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="enquiryno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="enquirydate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="campus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sourcetypeid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="applicantname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dateofbirth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="genderid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="applyforid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="preclassattid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="preschoolname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="coutryid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="stateid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cityid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cellno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="whatsappno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="preferrescommunication" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fathername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fathercnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fatheroccupationid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fatherrganization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fathercellno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fatherwhatsapp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fatheremail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fatherpreferrescommunication" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mothername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mothercnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="motheroccupationid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="motherrganization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mothercellno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="motherwhatsapp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="motheremail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="motherpreferrescommunication" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="entityId" Type="Int32" />
+          <Property Name="clientId" Type="Int32" />
+        </EntityType>
         <EntityType Name="hdr_HR_EmployeeProfile">
           <Key>
             <PropertyRef Name="Id" />
@@ -1083,6 +1167,17 @@
           <Property Name="empdepartment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="empdestination" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="site" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="entityId" Type="Int32" />
+          <Property Name="clientId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="hdr_occupation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="entityId" Type="Int32" />
           <Property Name="clientId" Type="Int32" />
         </EntityType>
@@ -1139,6 +1234,67 @@
           <Property Name="emergencycontactno" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
           <Property Name="entityId" Type="Int32" />
         </EntityType>
+        <EntityType Name="hdr_SMAcademicYear">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="academicregister" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="academicyear" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="startdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="enddate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="syllabus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="entityId" Type="Int32" />
+          <Property Name="cleintid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mst_hdr_site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sitename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sitetype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sitefor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="entityId" Type="Int32" />
+          <Property Name="clientId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mst_hdrArea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="areaname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="entityId" Type="Int32" />
+          <Property Name="clientId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mst_region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="region" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="entityId" Type="Int32" />
+          <Property Name="clientId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mst_user_Entity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="EntityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="clientId" Type="Int32" />
+          <NavigationProperty Name="ut_user_auth" Relationship="ecomSchoolModel.FK_mst_user_Entity_ut_user_auth" FromRole="mst_user_Entity" ToRole="ut_user_auth" />
+        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
@@ -1181,6 +1337,18 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="entityid" Type="Int32" />
         </EntityType>
+        <EntityType Name="SMStuAttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stdid" Type="Int32" />
+          <Property Name="courseid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sectionid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attenDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attendactivity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="entityId" Type="Int32" />
+        </EntityType>
         <EntityType Name="State">
           <Key>
             <PropertyRef Name="Id" />
@@ -1202,71 +1370,6 @@
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="entityId" Type="Int32" />
         </EntityType>
-        <EntityType Name="ut_clients">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="client" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="hdr_FOAdmEnquiry">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="enquiryno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="enquirydate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="campus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="sourcetypeid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="applicantname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="cnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="dateofbirth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="genderid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="applyforid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="preclassattid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="preschoolname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="coutryid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="stateid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="cityid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="cellno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="whatsappno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="preferrescommunication" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fathername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fathercnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fatheroccupationid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fatherrganization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fathercellno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fatherwhatsapp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fatheremail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fatherpreferrescommunication" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="mothername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="mothercnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="motheroccupationid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="motherrganization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="mothercellno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="motherwhatsapp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="motheremail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="motherpreferrescommunication" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="entityId" Type="Int32" />
-          <Property Name="clientId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="hdr_SMAcademicYear">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="academicregister" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="academicyear" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="startdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="enddate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="syllabus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="entityId" Type="Int32" />
-          <Property Name="cleintid" Type="Int32" />
-        </EntityType>
         <EntityType Name="userEntity">
           <Key>
             <PropertyRef Name="Id" />
@@ -1276,15 +1379,13 @@
           <Property Name="EntityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="clientid" Type="Int32" />
         </EntityType>
-        <EntityType Name="mst_user_Entity">
+        <EntityType Name="ut_clients">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="userId" Type="Int32" />
-          <Property Name="EntityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="clientId" Type="Int32" />
-          <NavigationProperty Name="ut_user_auth" Relationship="ecomSchoolModel.FK_mst_user_Entity_ut_user_auth" FromRole="mst_user_Entity" ToRole="ut_user_auth" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="client" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ut_user_auth">
           <Key>
@@ -1317,67 +1418,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="mst_region">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="region" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="entityId" Type="Int32" />
-          <Property Name="clientId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="hdr_occupation">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="entityId" Type="Int32" />
-          <Property Name="clientId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="mst_hdr_site">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="sitename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="sitetype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="sitefor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="entityId" Type="Int32" />
-          <Property Name="clientId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="mst_hdrArea">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="state" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="areaname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="entityId" Type="Int32" />
-          <Property Name="clientId" Type="Int32" />
-        </EntityType>
-        <EntityType Name="SMStuAttendance">
+        <EntityType Name="SMStudentATTENDENCE">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="stdid" Type="Int32" />
+          <Property Name="stdname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="courseid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="sectionid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="attenDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attenTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="attendactivity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="entityId" Type="Int32" />
         </EntityType>
-      </Schema>
+        <EntityType Name="hdr_SMBatch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bookno" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bookdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="booktype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="boojname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="academicyearid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="startdate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="enddate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="prefix" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="counter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="masklength" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="totalseats" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="enrolled" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="available" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="entityId" Type="Int32" />
+          <Property Name="clientId" Type="Int32" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1722,6 +1800,50 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="hdr_FOAdmEnquiry">
+            <EntityTypeMapping TypeName="ecomSchoolModel.hdr_FOAdmEnquiry">
+              <MappingFragment StoreEntitySet="hdr_FOAdmEnquiry">
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="entityId" ColumnName="entityId" />
+                <ScalarProperty Name="motherpreferrescommunication" ColumnName="motherpreferrescommunication" />
+                <ScalarProperty Name="motheremail" ColumnName="motheremail" />
+                <ScalarProperty Name="motherwhatsapp" ColumnName="motherwhatsapp" />
+                <ScalarProperty Name="mothercellno" ColumnName="mothercellno" />
+                <ScalarProperty Name="motherrganization" ColumnName="motherrganization" />
+                <ScalarProperty Name="motheroccupationid" ColumnName="motheroccupationid" />
+                <ScalarProperty Name="mothercnic" ColumnName="mothercnic" />
+                <ScalarProperty Name="mothername" ColumnName="mothername" />
+                <ScalarProperty Name="fatherpreferrescommunication" ColumnName="fatherpreferrescommunication" />
+                <ScalarProperty Name="fatheremail" ColumnName="fatheremail" />
+                <ScalarProperty Name="fatherwhatsapp" ColumnName="fatherwhatsapp" />
+                <ScalarProperty Name="fathercellno" ColumnName="fathercellno" />
+                <ScalarProperty Name="fatherrganization" ColumnName="fatherrganization" />
+                <ScalarProperty Name="fatheroccupationid" ColumnName="fatheroccupationid" />
+                <ScalarProperty Name="fathercnic" ColumnName="fathercnic" />
+                <ScalarProperty Name="fathername" ColumnName="fathername" />
+                <ScalarProperty Name="preferrescommunication" ColumnName="preferrescommunication" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="whatsappno" ColumnName="whatsappno" />
+                <ScalarProperty Name="cellno" ColumnName="cellno" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="stateid" ColumnName="stateid" />
+                <ScalarProperty Name="coutryid" ColumnName="coutryid" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="preschoolname" ColumnName="preschoolname" />
+                <ScalarProperty Name="preclassattid" ColumnName="preclassattid" />
+                <ScalarProperty Name="applyforid" ColumnName="applyforid" />
+                <ScalarProperty Name="genderid" ColumnName="genderid" />
+                <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
+                <ScalarProperty Name="cnic" ColumnName="cnic" />
+                <ScalarProperty Name="applicantname" ColumnName="applicantname" />
+                <ScalarProperty Name="sourcetypeid" ColumnName="sourcetypeid" />
+                <ScalarProperty Name="campus" ColumnName="campus" />
+                <ScalarProperty Name="enquirydate" ColumnName="enquirydate" />
+                <ScalarProperty Name="enquiryno" ColumnName="enquiryno" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="hdr_HR_EmployeeProfile">
             <EntityTypeMapping TypeName="ecomSchoolModel.hdr_HR_EmployeeProfile">
               <MappingFragment StoreEntitySet="hdr_HR_EmployeeProfile">
@@ -1749,6 +1871,18 @@
                 <ScalarProperty Name="machinecode" ColumnName="machinecode" />
                 <ScalarProperty Name="shrotcode" ColumnName="shrotcode" />
                 <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hdr_occupation">
+            <EntityTypeMapping TypeName="ecomSchoolModel.hdr_occupation">
+              <MappingFragment StoreEntitySet="hdr_occupation">
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="entityId" ColumnName="entityId" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="occupation" ColumnName="occupation" />
+                <ScalarProperty Name="code" ColumnName="code" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1807,6 +1941,71 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="hdr_SMAcademicYear">
+            <EntityTypeMapping TypeName="ecomSchoolModel.hdr_SMAcademicYear">
+              <MappingFragment StoreEntitySet="hdr_SMAcademicYear">
+                <ScalarProperty Name="cleintid" ColumnName="cleintid" />
+                <ScalarProperty Name="entityId" ColumnName="entityId" />
+                <ScalarProperty Name="syllabus" ColumnName="syllabus" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="academicyear" ColumnName="academicyear" />
+                <ScalarProperty Name="academicregister" ColumnName="academicregister" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mst_hdr_site">
+            <EntityTypeMapping TypeName="ecomSchoolModel.mst_hdr_site">
+              <MappingFragment StoreEntitySet="mst_hdr_site">
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="entityId" ColumnName="entityId" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="sitefor" ColumnName="sitefor" />
+                <ScalarProperty Name="sitetype" ColumnName="sitetype" />
+                <ScalarProperty Name="sitename" ColumnName="sitename" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mst_hdrArea">
+            <EntityTypeMapping TypeName="ecomSchoolModel.mst_hdrArea">
+              <MappingFragment StoreEntitySet="mst_hdrArea">
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="entityId" ColumnName="entityId" />
+                <ScalarProperty Name="areaname" ColumnName="areaname" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mst_region">
+            <EntityTypeMapping TypeName="ecomSchoolModel.mst_region">
+              <MappingFragment StoreEntitySet="mst_region">
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="entityId" ColumnName="entityId" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mst_user_Entity">
+            <EntityTypeMapping TypeName="ecomSchoolModel.mst_user_Entity">
+              <MappingFragment StoreEntitySet="mst_user_Entity">
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="ecomSchoolModel.Role">
               <MappingFragment StoreEntitySet="Roles">
@@ -1853,6 +2052,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SMStuAttendances">
+            <EntityTypeMapping TypeName="ecomSchoolModel.SMStuAttendance">
+              <MappingFragment StoreEntitySet="SMStuAttendance">
+                <ScalarProperty Name="entityId" ColumnName="entityId" />
+                <ScalarProperty Name="attendactivity" ColumnName="attendactivity" />
+                <ScalarProperty Name="attenDate" ColumnName="attenDate" />
+                <ScalarProperty Name="sectionid" ColumnName="sectionid" />
+                <ScalarProperty Name="courseid" ColumnName="courseid" />
+                <ScalarProperty Name="stdid" ColumnName="stdid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="States">
             <EntityTypeMapping TypeName="ecomSchoolModel.State">
               <MappingFragment StoreEntitySet="States">
@@ -1876,74 +2088,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ut_clients">
-            <EntityTypeMapping TypeName="ecomSchoolModel.ut_clients">
-              <MappingFragment StoreEntitySet="ut_clients">
-                <ScalarProperty Name="client" ColumnName="client" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="hdr_FOAdmEnquiry">
-            <EntityTypeMapping TypeName="ecomSchoolModel.hdr_FOAdmEnquiry">
-              <MappingFragment StoreEntitySet="hdr_FOAdmEnquiry">
-                <ScalarProperty Name="clientId" ColumnName="clientId" />
-                <ScalarProperty Name="entityId" ColumnName="entityId" />
-                <ScalarProperty Name="motherpreferrescommunication" ColumnName="motherpreferrescommunication" />
-                <ScalarProperty Name="motheremail" ColumnName="motheremail" />
-                <ScalarProperty Name="motherwhatsapp" ColumnName="motherwhatsapp" />
-                <ScalarProperty Name="mothercellno" ColumnName="mothercellno" />
-                <ScalarProperty Name="motherrganization" ColumnName="motherrganization" />
-                <ScalarProperty Name="motheroccupationid" ColumnName="motheroccupationid" />
-                <ScalarProperty Name="mothercnic" ColumnName="mothercnic" />
-                <ScalarProperty Name="mothername" ColumnName="mothername" />
-                <ScalarProperty Name="fatherpreferrescommunication" ColumnName="fatherpreferrescommunication" />
-                <ScalarProperty Name="fatheremail" ColumnName="fatheremail" />
-                <ScalarProperty Name="fatherwhatsapp" ColumnName="fatherwhatsapp" />
-                <ScalarProperty Name="fathercellno" ColumnName="fathercellno" />
-                <ScalarProperty Name="fatherrganization" ColumnName="fatherrganization" />
-                <ScalarProperty Name="fatheroccupationid" ColumnName="fatheroccupationid" />
-                <ScalarProperty Name="fathercnic" ColumnName="fathercnic" />
-                <ScalarProperty Name="fathername" ColumnName="fathername" />
-                <ScalarProperty Name="preferrescommunication" ColumnName="preferrescommunication" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="whatsappno" ColumnName="whatsappno" />
-                <ScalarProperty Name="cellno" ColumnName="cellno" />
-                <ScalarProperty Name="cityid" ColumnName="cityid" />
-                <ScalarProperty Name="stateid" ColumnName="stateid" />
-                <ScalarProperty Name="coutryid" ColumnName="coutryid" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="preschoolname" ColumnName="preschoolname" />
-                <ScalarProperty Name="preclassattid" ColumnName="preclassattid" />
-                <ScalarProperty Name="applyforid" ColumnName="applyforid" />
-                <ScalarProperty Name="genderid" ColumnName="genderid" />
-                <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
-                <ScalarProperty Name="cnic" ColumnName="cnic" />
-                <ScalarProperty Name="applicantname" ColumnName="applicantname" />
-                <ScalarProperty Name="sourcetypeid" ColumnName="sourcetypeid" />
-                <ScalarProperty Name="campus" ColumnName="campus" />
-                <ScalarProperty Name="enquirydate" ColumnName="enquirydate" />
-                <ScalarProperty Name="enquiryno" ColumnName="enquiryno" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="hdr_SMAcademicYear">
-            <EntityTypeMapping TypeName="ecomSchoolModel.hdr_SMAcademicYear">
-              <MappingFragment StoreEntitySet="hdr_SMAcademicYear">
-                <ScalarProperty Name="cleintid" ColumnName="cleintid" />
-                <ScalarProperty Name="entityId" ColumnName="entityId" />
-                <ScalarProperty Name="syllabus" ColumnName="syllabus" />
-                <ScalarProperty Name="enddate" ColumnName="enddate" />
-                <ScalarProperty Name="startdate" ColumnName="startdate" />
-                <ScalarProperty Name="academicyear" ColumnName="academicyear" />
-                <ScalarProperty Name="academicregister" ColumnName="academicregister" />
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="userEntities">
             <EntityTypeMapping TypeName="ecomSchoolModel.userEntity">
               <MappingFragment StoreEntitySet="userEntities">
@@ -1954,13 +2098,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="mst_user_Entity">
-            <EntityTypeMapping TypeName="ecomSchoolModel.mst_user_Entity">
-              <MappingFragment StoreEntitySet="mst_user_Entity">
-                <ScalarProperty Name="clientId" ColumnName="clientId" />
-                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
-                <ScalarProperty Name="userId" ColumnName="userId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+          <EntitySetMapping Name="ut_clients">
+            <EntityTypeMapping TypeName="ecomSchoolModel.ut_clients">
+              <MappingFragment StoreEntitySet="ut_clients">
+                <ScalarProperty Name="client" ColumnName="client" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1983,67 +2126,41 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="mst_region">
-            <EntityTypeMapping TypeName="ecomSchoolModel.mst_region">
-              <MappingFragment StoreEntitySet="mst_region">
-                <ScalarProperty Name="clientId" ColumnName="clientId" />
-                <ScalarProperty Name="entityId" ColumnName="entityId" />
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="region" ColumnName="region" />
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="hdr_occupation">
-            <EntityTypeMapping TypeName="ecomSchoolModel.hdr_occupation">
-              <MappingFragment StoreEntitySet="hdr_occupation">
-                <ScalarProperty Name="clientId" ColumnName="clientId" />
-                <ScalarProperty Name="entityId" ColumnName="entityId" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="occupation" ColumnName="occupation" />
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="mst_hdr_site">
-            <EntityTypeMapping TypeName="ecomSchoolModel.mst_hdr_site">
-              <MappingFragment StoreEntitySet="mst_hdr_site">
-                <ScalarProperty Name="clientId" ColumnName="clientId" />
-                <ScalarProperty Name="entityId" ColumnName="entityId" />
-                <ScalarProperty Name="region" ColumnName="region" />
-                <ScalarProperty Name="sitefor" ColumnName="sitefor" />
-                <ScalarProperty Name="sitetype" ColumnName="sitetype" />
-                <ScalarProperty Name="sitename" ColumnName="sitename" />
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="mst_hdrArea">
-            <EntityTypeMapping TypeName="ecomSchoolModel.mst_hdrArea">
-              <MappingFragment StoreEntitySet="mst_hdrArea">
-                <ScalarProperty Name="clientId" ColumnName="clientId" />
-                <ScalarProperty Name="entityId" ColumnName="entityId" />
-                <ScalarProperty Name="areaname" ColumnName="areaname" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="country" ColumnName="country" />
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SMStuAttendances">
-            <EntityTypeMapping TypeName="ecomSchoolModel.SMStuAttendance">
-              <MappingFragment StoreEntitySet="SMStuAttendance">
+          <EntitySetMapping Name="SMStudentATTENDENCEs">
+            <EntityTypeMapping TypeName="ecomSchoolModel.SMStudentATTENDENCE">
+              <MappingFragment StoreEntitySet="SMStudentATTENDENCE">
                 <ScalarProperty Name="entityId" ColumnName="entityId" />
                 <ScalarProperty Name="attendactivity" ColumnName="attendactivity" />
+                <ScalarProperty Name="attenTime" ColumnName="attenTime" />
                 <ScalarProperty Name="attenDate" ColumnName="attenDate" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="sectionid" ColumnName="sectionid" />
                 <ScalarProperty Name="courseid" ColumnName="courseid" />
+                <ScalarProperty Name="stdname" ColumnName="stdname" />
                 <ScalarProperty Name="stdid" ColumnName="stdid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hdr_SMBatch">
+            <EntityTypeMapping TypeName="ecomSchoolModel.hdr_SMBatch">
+              <MappingFragment StoreEntitySet="hdr_SMBatch">
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="entityId" ColumnName="entityId" />
+                <ScalarProperty Name="available" ColumnName="available" />
+                <ScalarProperty Name="enrolled" ColumnName="enrolled" />
+                <ScalarProperty Name="totalseats" ColumnName="totalseats" />
+                <ScalarProperty Name="masklength" ColumnName="masklength" />
+                <ScalarProperty Name="counter" ColumnName="counter" />
+                <ScalarProperty Name="prefix" ColumnName="prefix" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="academicyearid" ColumnName="academicyearid" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="boojname" ColumnName="boojname" />
+                <ScalarProperty Name="booktype" ColumnName="booktype" />
+                <ScalarProperty Name="bookdate" ColumnName="bookdate" />
+                <ScalarProperty Name="bookno" ColumnName="bookno" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

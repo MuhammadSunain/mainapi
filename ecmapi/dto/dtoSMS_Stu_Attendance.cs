@@ -14,5 +14,8 @@ namespace ecmapi.dto
         public string courseid { get; internal set; }
         public int? stdid { get; internal set; }
         public int Id { get; internal set; }
+        public string attenTime { get; internal set; }
+        public string stdname { get; internal set; }
+        public string gender { get; internal set; }
     }
 }

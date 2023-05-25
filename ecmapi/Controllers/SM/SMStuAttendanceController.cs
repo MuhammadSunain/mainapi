@@ -15,12 +15,12 @@ namespace ecmapi.Controllers.SM
     {
         ecomSchoolEntities db = new ecomSchoolEntities();
         [HttpPost]
-        [Route("SaveAttendence/{stdsObj}")]
-        public IHttpActionResult SaveAttendence(SMStuAttendance stdsObj)
+        [Route("SaveAttendence/{stdObj}")]
+        public IHttpActionResult SaveAttendence(SMStudentATTENDENCE stdObj)
         {
             try
             {
-                db.SMStuAttendances.Add(stdsObj);
+                db.SMStudentATTENDENCEs.Add(stdObj);
                 db.SaveChanges();
             }
             catch (Exception)
@@ -34,16 +34,19 @@ namespace ecmapi.Controllers.SM
 
         public async Task<List<dtoSMS_Stu_Attendance>> GetDailyAttendanceByEntityId(int entityId, string date)
         {
-            var query = (from hdr in db.SMStuAttendances
+            var query = (from hdr in db.SMStudentATTENDENCEs
                          where
                          (entityId == hdr.entityId && date == hdr.attenDate)
                          select new dtoSMS_Stu_Attendance()
                          {
                              Id = hdr.Id,
                              stdid = hdr.stdid,
+                             stdname = hdr.stdname,
                              courseid = hdr.courseid,
                              sectionid = hdr.sectionid,
+                             gender = hdr.gender,
                              attenDate = hdr.attenDate,
+                             attenTime = hdr.attenTime,
                              attendactivity = hdr.attendactivity,
                              entityId = hdr.entityId
                          }).ToList();

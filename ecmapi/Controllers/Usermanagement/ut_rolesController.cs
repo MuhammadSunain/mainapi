@@ -41,10 +41,37 @@ namespace ecmapi.Controllers.Usermanagement
                          {
                              Id = hdr.Id,
                              Code = hdr.Code,
-                             Role = hdr.Role1,
-                             clientname = hdr.clientname,
+                             Role1 = hdr.Role1,
+                             Entity = hdr.clientname,
                          }).ToList();
             return query;
+        }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<Role>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("update_RoleData/{roleid}/{obj}")]
+        public IHttpActionResult update(int roleid, Role obj)
+        {
+            var dto = ut_EntityRole.Roles.FirstOrDefault(n => n.Id == roleid);
+            if (dto != null)
+            {
+                dto.Code = obj.Code;
+                dto.Role1 = obj.Role1;
+                dto.clientname = obj.clientname;
+                ut_EntityRole.SaveChanges();
+            }
+            return Ok("record updated successfully...");
         }
     }
 }

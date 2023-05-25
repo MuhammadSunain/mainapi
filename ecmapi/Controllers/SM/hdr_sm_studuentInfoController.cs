@@ -48,52 +48,52 @@ namespace ecmapi.Controllers.SM
                              Id = hdr.Id,
                              requesterid = hdr.StudentID,
                              StudentID = hdr.StudentID,
-                             grno = hdr.grno,
-                             StudentCategory = hdr.StudentCategory,
-                             FullName = hdr.FullName,
+                             GRno = hdr.grno,
+                             stdcategory = hdr.StudentCategory,
+                             Fullname = hdr.FullName,
                              requestername = hdr.FullName,
-                             LastName = hdr.LastName,
-                             DateofBirth = hdr.DateofBirth,
+                             lastname = hdr.LastName,
+                             dateofbirth = hdr.DateofBirth,
                              CNIC = hdr.CNIC,
                              Nationality = hdr.Nationality,
-                             gender = hdr.gender,
-                             Religon = hdr.Religon,
+                             Gender = hdr.gender,
+                             Religion = hdr.Religon,
                              Address = hdr.Address,
                              Country = hdr.Country,
                              State = hdr.State,
                              City = hdr.City,
-                             Phoneno = hdr.Phoneno,
-                             mobileno = hdr.mobileno,
+                             PhoneNo = hdr.Phoneno,
+                             MobileNo = hdr.mobileno,
                              Email = hdr.Email,
-                             joingdate = hdr.joingdate,
-                             admissiondate = hdr.admissiondate,
-                             syllabus = hdr.syllabus,
+                             JoiningDate = hdr.joingdate,
+                             AdmissionDate = hdr.admissiondate,
+                             Syllabus = hdr.syllabus,
                              Course = hdr.Course,
                              Section = hdr.Section,
-                             Sectiongroup = hdr.Sectiongroup,
-                             fatherName = hdr.fatherName,
-                             fatherincome = hdr.fatherincome,
-                             Contactno = hdr.Contactno,
-                             fathercnic = hdr.fathercnic,
-                             whatsappno = hdr.whatsappno,
-                             fatheremail = hdr.fatheremail,
-                             fatheraddress = hdr.fatheraddress,
-                             fathercountry = hdr.fathercountry,
-                             fatherstate = hdr.fatherstate,
-                             fathercity = hdr.fathercity,
+                             SectionGroup = hdr.Sectiongroup,
+                             fathname = hdr.fatherName,
+                             FathersIncome = hdr.fatherincome,
+                             fathcontactno = hdr.Contactno,
+                             fathcnic = hdr.fathercnic,
+                             fathwhatsappno = hdr.whatsappno,
+                             fathEmail = hdr.fatheremail,
+                             fathAddress = hdr.fatheraddress,
+                             fathCountry = hdr.fathercountry,
+                             fathState = hdr.fatherstate,
+                             fathCity = hdr.fathercity,
                              mothername = hdr.mothername,
                              mothercnic = hdr.mothercnic,
-                             mothercontactno = hdr.mothercontactno,
-                             motherwhatsapp = hdr.motherwhatsapp,
-                             motheremail = hdr.motheremail,
-                             motheraddres = hdr.motheraddres,
-                             mothercountry = hdr.mothercountry,
-                             motherstate = hdr.motherstate,
-                             mothercity = hdr.mothercity,
-                             emergencyrelagion = hdr.emergencyrelagion,
-                             emergencypersonname = hdr.emergencypersonname,
-                             emergencycnic = hdr.emergencycnic,
-                             emergencycontactno = hdr.emergencycontactno
+                             mothcontactno = hdr.mothercontactno,
+                             mothwhatsappno = hdr.motherwhatsapp,
+                             mothEmail = hdr.motheremail,
+                             mothAddress = hdr.motheraddres,
+                             mothCountry = hdr.mothercountry,
+                             mothState = hdr.motherstate,
+                             mothCity = hdr.mothercity,
+                             Relation = hdr.emergencyrelagion,
+                             emername = hdr.emergencypersonname,
+                             emerCNIC = hdr.emergencycnic,
+                             emerContactNo = hdr.emergencycontactno
                          }).ToList();
             return query;
         }
@@ -108,54 +108,121 @@ namespace ecmapi.Controllers.SM
                          select new dto_hdr_SM_student_info()
                          {
                              Id = hdr.Id,
+                             requesterid = hdr.StudentID,
                              StudentID = hdr.StudentID,
-                             grno = hdr.grno,
-                             StudentCategory = hdr.StudentCategory,
-                             FullName = hdr.FullName,
-                             LastName = hdr.LastName,
-                             DateofBirth = hdr.DateofBirth,
+                             GRno = hdr.grno,
+                             stdcategory = hdr.StudentCategory,
+                             Fullname = hdr.FullName,
+                             requestername = hdr.FullName,
+                             lastname = hdr.LastName,
+                             dateofbirth = hdr.DateofBirth,
                              CNIC = hdr.CNIC,
                              Nationality = hdr.Nationality,
-                             gender = hdr.gender,
-                             Religon = hdr.Religon,
+                             Gender = hdr.gender,
+                             Religion = hdr.Religon,
                              Address = hdr.Address,
                              Country = hdr.Country,
                              State = hdr.State,
                              City = hdr.City,
-                             Phoneno = hdr.Phoneno,
-                             mobileno = hdr.mobileno,
+                             PhoneNo = hdr.Phoneno,
+                             MobileNo = hdr.mobileno,
                              Email = hdr.Email,
-                             joingdate = hdr.joingdate,
-                             admissiondate = hdr.admissiondate,
-                             syllabus = hdr.syllabus,
+                             JoiningDate = hdr.joingdate,
+                             AdmissionDate = hdr.admissiondate,
+                             Syllabus = hdr.syllabus,
                              Course = hdr.Course,
                              Section = hdr.Section,
-                             Sectiongroup = hdr.Sectiongroup,
-                             fatherName = hdr.fatherName,
-                             fatherincome = hdr.fatherincome,
-                             Contactno = hdr.Contactno,
-                             fathercnic = hdr.fathercnic,
-                             whatsappno = hdr.whatsappno,
-                             fatheremail = hdr.fatheremail,
-                             fatheraddress = hdr.fatheraddress,
-                             fathercountry = hdr.fathercountry,
-                             fatherstate = hdr.fatherstate,
-                             fathercity = hdr.fathercity,
+                             SectionGroup = hdr.Sectiongroup,
+                             fathname = hdr.fatherName,
+                             FathersIncome = hdr.fatherincome,
+                             fathcontactno = hdr.Contactno,
+                             fathcnic = hdr.fathercnic,
+                             fathwhatsappno = hdr.whatsappno,
+                             fathEmail = hdr.fatheremail,
+                             fathAddress = hdr.fatheraddress,
+                             fathCountry = hdr.fathercountry,
+                             fathState = hdr.fatherstate,
+                             fathCity = hdr.fathercity,
                              mothername = hdr.mothername,
                              mothercnic = hdr.mothercnic,
-                             mothercontactno = hdr.mothercontactno,
-                             motherwhatsapp = hdr.motherwhatsapp,
-                             motheremail = hdr.motheremail,
-                             motheraddres = hdr.motheraddres,
-                             mothercountry = hdr.mothercountry,
-                             motherstate = hdr.motherstate,
-                             mothercity = hdr.mothercity,
-                             emergencyrelagion = hdr.emergencyrelagion,
-                             emergencypersonname = hdr.emergencypersonname,
-                             emergencycnic = hdr.emergencycnic,
-                             emergencycontactno = hdr.emergencycontactno
+                             mothcontactno = hdr.mothercontactno,
+                             mothwhatsappno = hdr.motherwhatsapp,
+                             mothEmail = hdr.motheremail,
+                             mothAddress = hdr.motheraddres,
+                             mothCountry = hdr.mothercountry,
+                             mothState = hdr.motherstate,
+                             mothCity = hdr.mothercity,
+                             Relation = hdr.emergencyrelagion,
+                             emername = hdr.emergencypersonname,
+                             emerCNIC = hdr.emergencycnic,
+                             emerContactNo = hdr.emergencycontactno
                          }).ToList();
             return query;
+        }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<hdr_Sm_studentinfo>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+        [HttpPut]
+        [Route("update_studentData/{stdid}/{obj}")]
+        public IHttpActionResult update(int stdid, hdr_Sm_studentinfo obj)
+        {
+            var dto = hdr_SM_StudentInfo.hdr_Sm_studentinfo.FirstOrDefault(n => n.Id == stdid);
+            if (dto != null)
+            {
+                dto.StudentCategory = obj.StudentCategory;
+                dto.FullName = obj.FullName;
+                dto.LastName = obj.LastName;
+                dto.DateofBirth = obj.DateofBirth;
+                dto.CNIC = obj.CNIC;
+                dto.Nationality = obj.Nationality;
+                dto.gender = obj.gender;
+                dto.Religon = obj.Religon;
+                dto.Address = obj.Address;
+                dto.Country = obj.Country;
+                dto.State = obj.State;
+                dto.City = obj.City;
+                dto.Phoneno = obj.Phoneno;
+                dto.mobileno = obj.mobileno;
+                dto.Email = obj.Email;
+                dto.joingdate = obj.joingdate;
+                dto.admissiondate = obj.admissiondate;
+                dto.syllabus = obj.syllabus;
+                dto.Course = obj.Course;
+                dto.Section = obj.Section;
+                dto.Sectiongroup = obj.Sectiongroup;
+                dto.fatherName = obj.fatherName;
+                dto.fatherincome = obj.fatherincome;
+                dto.Contactno = obj.Contactno;
+                dto.fathercnic = obj.fathercnic;
+                dto.whatsappno = obj.whatsappno;
+                dto.fatheremail = obj.fatheremail;
+                dto.fatheraddress = obj.fatheraddress;
+                dto.fathercountry = obj.fathercountry;
+                dto.fatherstate = obj.fatherstate;
+                dto.fathercity = obj.fathercity;
+                dto.mothername = obj.mothername;
+                dto.mothercnic = obj.mothercnic;
+                dto.mothercontactno = obj.mothercontactno;
+                             dto.motherwhatsapp = obj.motherwhatsapp;
+                             dto.motheremail = obj.motheremail;
+                             dto.motheraddres = obj.motheraddres;
+                             dto.mothercountry = obj.mothercountry;
+                dto.motherstate = obj.motherstate;
+                dto.mothercity = obj.mothercity;
+                dto.emergencyrelagion = obj.emergencyrelagion;
+                dto.emergencypersonname = obj.emergencypersonname;
+                             dto.emergencycnic = obj.emergencycnic;
+                dto.emergencycontactno = obj.emergencycontactno;
+            }
+            return Ok("record updated successfully...");
         }
     }
 }

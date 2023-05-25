@@ -9,7 +9,7 @@ namespace ecmapi.dto
     {
         public int Id { get; internal set; }
         public string Code { get; internal set; }
-        public string QualificationType { get; internal set; }
+        public string qualificationtype { get; internal set; }
         public string Description { get; internal set; }
     }
 }

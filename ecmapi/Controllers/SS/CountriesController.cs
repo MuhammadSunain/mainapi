@@ -45,11 +45,38 @@ namespace ecmapi.Controllers.SS
                              Id = hdr.Id,
                              Code = hdr.Code,
                              Country = hdr.Country1,
-                             IsoCode = hdr.isocode,
-                             DialCode = hdr.DialCode,
+                             isoCode = hdr.isocode,
+                             dialCode = hdr.DialCode,
                              Description = hdr.Description
                          }).ToList();
             return query;
+        }
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var item = Delete<Country>(id);
+            if (item != null)
+            {
+                return Ok("Record Deleted Successfully");
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("update_CountryData/{countryid}/{obj}")]
+        public IHttpActionResult update(int countryid, Country obj)
+        {
+            var dto = Ut_Countries.Countries.FirstOrDefault(n => n.Id == countryid);
+            if (dto != null)
+            {
+                dto.Code = obj.Code;
+                dto.Country1 = obj.Country1;
+                dto.isocode = obj.isocode;
+                dto.DialCode = obj.DialCode;
+                Ut_Countries.SaveChanges();
+            }
+            return Ok("record updated successfully...");
         }
     }
 }
