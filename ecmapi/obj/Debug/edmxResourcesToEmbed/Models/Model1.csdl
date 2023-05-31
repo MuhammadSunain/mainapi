@@ -49,8 +49,8 @@
       <End Role="ut_user_auth" EntitySet="ut_user_auth" />
       <End Role="mst_user_Entity" EntitySet="mst_user_Entity" />
     </AssociationSet>
-    <EntitySet Name="SMStudentATTENDENCEs" EntityType="ecomSchoolModel.SMStudentATTENDENCE" />
     <EntitySet Name="hdr_SMBatch" EntityType="ecomSchoolModel.hdr_SMBatch" />
+    <EntitySet Name="SMActivitiesSTUDENTAttendances" EntityType="ecomSchoolModel.SMActivitiesSTUDENTAttendance" />
   </EntityContainer>
   <EntityType Name="academicRegister">
     <Key>
@@ -687,21 +687,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="SMStudentATTENDENCE">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="stdid" Type="Int32" />
-    <Property Name="stdname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="courseid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="sectionid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="attenDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="attenTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="attendactivity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="entityId" Type="Int32" />
-  </EntityType>
   <EntityType Name="hdr_SMBatch">
     <Key>
       <PropertyRef Name="Id" />
@@ -723,5 +708,20 @@
     <Property Name="available" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="entityId" Type="Int32" />
     <Property Name="clientId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SMActivitiesSTUDENTAttendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stdid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="stdname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="courseid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sectionid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="attenDate" Type="DateTime" Precision="0" />
+    <Property Name="attenTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="attendactivity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="entityId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

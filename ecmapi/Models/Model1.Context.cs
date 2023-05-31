@@ -69,7 +69,7 @@ namespace ecmapi.Models
         public virtual DbSet<userEntity> userEntities { get; set; }
         public virtual DbSet<ut_clients> ut_clients { get; set; }
         public virtual DbSet<ut_user_auth> ut_user_auth { get; set; }
-        public virtual DbSet<SMStudentATTENDENCE> SMStudentATTENDENCEs { get; set; }
         public virtual DbSet<hdr_SMBatch> hdr_SMBatch { get; set; }
+        public virtual DbSet<SMActivitiesSTUDENTAttendance> SMActivitiesSTUDENTAttendances { get; set; }
     }
 }

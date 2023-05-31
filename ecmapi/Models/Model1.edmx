@@ -549,6 +549,21 @@
           <Property Name="entityId" Type="int" />
           <Property Name="clientname" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="SMActivitiesSTUDENTAttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stdid" Type="nvarchar(max)" />
+          <Property Name="stdname" Type="nvarchar(max)" />
+          <Property Name="courseid" Type="nvarchar(max)" />
+          <Property Name="sectionid" Type="nvarchar(max)" />
+          <Property Name="gender" Type="nvarchar(max)" />
+          <Property Name="attenDate" Type="date" />
+          <Property Name="attenTime" Type="nvarchar(max)" />
+          <Property Name="attendactivity" Type="nvarchar(max)" />
+          <Property Name="entityId" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Sms_Qualification">
           <Key>
             <PropertyRef Name="Id" />
@@ -589,21 +604,6 @@
           <Property Name="courseid" Type="nvarchar(max)" />
           <Property Name="sectionid" Type="nvarchar(max)" />
           <Property Name="attenDate" Type="nvarchar(max)" />
-          <Property Name="attendactivity" Type="nvarchar(max)" />
-          <Property Name="entityId" Type="int" />
-        </EntityType>
-        <EntityType Name="SMStudentATTENDENCE">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="stdid" Type="int" />
-          <Property Name="stdname" Type="nvarchar(max)" />
-          <Property Name="courseid" Type="nvarchar(max)" />
-          <Property Name="sectionid" Type="nvarchar(max)" />
-          <Property Name="gender" Type="nvarchar(max)" />
-          <Property Name="attenDate" Type="nvarchar(max)" />
-          <Property Name="attenTime" Type="nvarchar(max)" />
           <Property Name="attendactivity" Type="nvarchar(max)" />
           <Property Name="entityId" Type="int" />
         </EntityType>
@@ -712,11 +712,11 @@
           <EntitySet Name="mst_region" EntityType="Self.mst_region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="mst_user_Entity" EntityType="Self.mst_user_Entity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SMActivitiesSTUDENTAttendance" EntityType="Self.SMActivitiesSTUDENTAttendance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sms_Qualification" EntityType="Self.Sms_Qualification" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SMS_QualificationType" EntityType="Self.SMS_QualificationType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sms_Religion" EntityType="Self.sms_Religion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SMStuAttendance" EntityType="Self.SMStuAttendance" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SMStudentATTENDENCE" EntityType="Self.SMStudentATTENDENCE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="States" EntityType="Self.States" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="student_category" EntityType="Self.student_category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="userEntities" EntityType="Self.userEntities" Schema="dbo" store:Type="Tables" />
@@ -780,8 +780,8 @@
             <End Role="ut_user_auth" EntitySet="ut_user_auth" />
             <End Role="mst_user_Entity" EntitySet="mst_user_Entity" />
           </AssociationSet>
-          <EntitySet Name="SMStudentATTENDENCEs" EntityType="ecomSchoolModel.SMStudentATTENDENCE" />
           <EntitySet Name="hdr_SMBatch" EntityType="ecomSchoolModel.hdr_SMBatch" />
+          <EntitySet Name="SMActivitiesSTUDENTAttendances" EntityType="ecomSchoolModel.SMActivitiesSTUDENTAttendance" />
         </EntityContainer>
         <EntityType Name="academicRegister">
           <Key>
@@ -1418,21 +1418,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="SMStudentATTENDENCE">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="stdid" Type="Int32" />
-          <Property Name="stdname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="courseid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="sectionid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="attenDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="attenTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="attendactivity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="entityId" Type="Int32" />
-        </EntityType>
         <EntityType Name="hdr_SMBatch">
           <Key>
             <PropertyRef Name="Id" />
@@ -1454,6 +1439,21 @@
           <Property Name="available" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="entityId" Type="Int32" />
           <Property Name="clientId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SMActivitiesSTUDENTAttendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stdid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="stdname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="courseid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sectionid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attenDate" Type="DateTime" Precision="0" />
+          <Property Name="attenTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="attendactivity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="entityId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2126,22 +2126,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SMStudentATTENDENCEs">
-            <EntityTypeMapping TypeName="ecomSchoolModel.SMStudentATTENDENCE">
-              <MappingFragment StoreEntitySet="SMStudentATTENDENCE">
-                <ScalarProperty Name="entityId" ColumnName="entityId" />
-                <ScalarProperty Name="attendactivity" ColumnName="attendactivity" />
-                <ScalarProperty Name="attenTime" ColumnName="attenTime" />
-                <ScalarProperty Name="attenDate" ColumnName="attenDate" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="sectionid" ColumnName="sectionid" />
-                <ScalarProperty Name="courseid" ColumnName="courseid" />
-                <ScalarProperty Name="stdname" ColumnName="stdname" />
-                <ScalarProperty Name="stdid" ColumnName="stdid" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="hdr_SMBatch">
             <EntityTypeMapping TypeName="ecomSchoolModel.hdr_SMBatch">
               <MappingFragment StoreEntitySet="hdr_SMBatch">
@@ -2161,6 +2145,22 @@
                 <ScalarProperty Name="booktype" ColumnName="booktype" />
                 <ScalarProperty Name="bookdate" ColumnName="bookdate" />
                 <ScalarProperty Name="bookno" ColumnName="bookno" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMActivitiesSTUDENTAttendances">
+            <EntityTypeMapping TypeName="ecomSchoolModel.SMActivitiesSTUDENTAttendance">
+              <MappingFragment StoreEntitySet="SMActivitiesSTUDENTAttendance">
+                <ScalarProperty Name="entityId" ColumnName="entityId" />
+                <ScalarProperty Name="attendactivity" ColumnName="attendactivity" />
+                <ScalarProperty Name="attenTime" ColumnName="attenTime" />
+                <ScalarProperty Name="attenDate" ColumnName="attenDate" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="sectionid" ColumnName="sectionid" />
+                <ScalarProperty Name="courseid" ColumnName="courseid" />
+                <ScalarProperty Name="stdname" ColumnName="stdname" />
+                <ScalarProperty Name="stdid" ColumnName="stdid" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

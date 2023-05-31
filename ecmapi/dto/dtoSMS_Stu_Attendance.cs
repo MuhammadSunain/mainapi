@@ -7,12 +7,12 @@ namespace ecmapi.dto
 {
     public class dtoSMS_Stu_Attendance
     {
-        public int? entityId { get; internal set; }
+        public string entityId { get; internal set; }
         public string attendactivity { get; internal set; }
-        public string attenDate { get; internal set; }
+        public DateTime attenDate { get; internal set; }
         public string sectionid { get; internal set; }
         public string courseid { get; internal set; }
-        public int? stdid { get; internal set; }
+        public string stdid { get; internal set; }
         public int Id { get; internal set; }
         public string attenTime { get; internal set; }
         public string stdname { get; internal set; }

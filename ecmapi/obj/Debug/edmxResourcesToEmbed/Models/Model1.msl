@@ -666,22 +666,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SMStudentATTENDENCEs">
-      <EntityTypeMapping TypeName="ecomSchoolModel.SMStudentATTENDENCE">
-        <MappingFragment StoreEntitySet="SMStudentATTENDENCE">
-          <ScalarProperty Name="entityId" ColumnName="entityId" />
-          <ScalarProperty Name="attendactivity" ColumnName="attendactivity" />
-          <ScalarProperty Name="attenTime" ColumnName="attenTime" />
-          <ScalarProperty Name="attenDate" ColumnName="attenDate" />
-          <ScalarProperty Name="gender" ColumnName="gender" />
-          <ScalarProperty Name="sectionid" ColumnName="sectionid" />
-          <ScalarProperty Name="courseid" ColumnName="courseid" />
-          <ScalarProperty Name="stdname" ColumnName="stdname" />
-          <ScalarProperty Name="stdid" ColumnName="stdid" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="hdr_SMBatch">
       <EntityTypeMapping TypeName="ecomSchoolModel.hdr_SMBatch">
         <MappingFragment StoreEntitySet="hdr_SMBatch">
@@ -701,6 +685,22 @@
           <ScalarProperty Name="booktype" ColumnName="booktype" />
           <ScalarProperty Name="bookdate" ColumnName="bookdate" />
           <ScalarProperty Name="bookno" ColumnName="bookno" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMActivitiesSTUDENTAttendances">
+      <EntityTypeMapping TypeName="ecomSchoolModel.SMActivitiesSTUDENTAttendance">
+        <MappingFragment StoreEntitySet="SMActivitiesSTUDENTAttendance">
+          <ScalarProperty Name="entityId" ColumnName="entityId" />
+          <ScalarProperty Name="attendactivity" ColumnName="attendactivity" />
+          <ScalarProperty Name="attenTime" ColumnName="attenTime" />
+          <ScalarProperty Name="attenDate" ColumnName="attenDate" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="sectionid" ColumnName="sectionid" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+          <ScalarProperty Name="stdname" ColumnName="stdname" />
+          <ScalarProperty Name="stdid" ColumnName="stdid" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

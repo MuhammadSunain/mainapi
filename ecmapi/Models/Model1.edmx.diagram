@@ -50,8 +50,8 @@
         <EntityTypeShape EntityType="ecomSchoolModel.ut_clients" Width="1.5" PointX="19.75" PointY="6.75" />
         <EntityTypeShape EntityType="ecomSchoolModel.ut_user_auth" Width="1.5" PointX="0.75" PointY="1" />
         <AssociationConnector Association="ecomSchoolModel.FK_mst_user_Entity_ut_user_auth" />
-        <EntityTypeShape EntityType="ecomSchoolModel.SMStudentATTENDENCE" Width="1.5" PointX="20.375" PointY="9.75" />
         <EntityTypeShape EntityType="ecomSchoolModel.hdr_SMBatch" Width="1.5" PointX="15.375" PointY="20.75" />
+        <EntityTypeShape EntityType="ecomSchoolModel.SMActivitiesSTUDENTAttendance" Width="1.5" PointX="20.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

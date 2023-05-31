@@ -16,11 +16,11 @@ namespace ecmapi.Controllers.SM
         ecomSchoolEntities db = new ecomSchoolEntities();
         [HttpPost]
         [Route("SaveAttendence/{stdObj}")]
-        public IHttpActionResult SaveAttendence(SMStudentATTENDENCE stdObj)
+        public IHttpActionResult SaveAttendence(SMActivitiesSTUDENTAttendance stdObj)
         {
             try
             {
-                db.SMStudentATTENDENCEs.Add(stdObj);
+                db.SMActivitiesSTUDENTAttendances.Add(stdObj);
                 db.SaveChanges();
             }
             catch (Exception)
@@ -32,9 +32,9 @@ namespace ecmapi.Controllers.SM
         [HttpGet]
         [Route("GetDailyAttendanceByEntityId/{entityId}/{date}")]
 
-        public async Task<List<dtoSMS_Stu_Attendance>> GetDailyAttendanceByEntityId(int entityId, string date)
+        public async Task<List<dtoSMS_Stu_Attendance>> GetDailyAttendanceByEntityId(string entityId, DateTime date)
         {
-            var query = (from hdr in db.SMStudentATTENDENCEs
+            var query = (from hdr in db.SMActivitiesSTUDENTAttendances
                          where
                          (entityId == hdr.entityId && date == hdr.attenDate)
                          select new dtoSMS_Stu_Attendance()
@@ -51,6 +51,28 @@ namespace ecmapi.Controllers.SM
                              entityId = hdr.entityId
                          }).ToList();
             return query;
+        }
+
+        [HttpGet]
+        [Route("AttendanceOverviewLast10Days/{entityId}")]
+
+        public IHttpActionResult AttendanceOverviewLast10Days(string entityId)
+        {
+            DateTime startDate = DateTime.Today.AddDays(-10);
+            DateTime endDate = DateTime.Today;
+
+            var query = db.SMActivitiesSTUDENTAttendances
+                .Where(a =>  a.entityId == entityId && a.attenDate >= startDate && a.attenDate <= endDate)
+                .GroupBy(a => a.Id)
+                .Select(g => new
+                {
+                    AttendanceDate = g.Select(a => new
+                    {
+                        attendancedate = a.attenDate.ToString(),
+                    }).ToList(),
+                    totalpresent = g.Count(a => a.attendactivity == "Present")
+                }).ToList();
+            return Ok(query);
         }
 
     }
