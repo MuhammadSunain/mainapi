@@ -20,7 +20,7 @@ namespace ecmapi.Models
         public string courseid { get; set; }
         public string sectionid { get; set; }
         public string gender { get; set; }
-        public DateTime attenDate { get; set; }
+        public Nullable<System.DateTime> attenDate { get; set; }
         public string attenTime { get; set; }
         public string attendactivity { get; set; }
         public string entityId { get; set; }

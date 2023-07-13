@@ -53,7 +53,7 @@ namespace ecmapi.Controllers.SM
                              Fullname = hdr.FullName,
                              requestername = hdr.FullName,
                              lastname = hdr.LastName,
-                             dateofbirth = hdr.DateofBirth,
+                             dateofbirth = hdr.DateofBirth.ToString(),
                              CNIC = hdr.CNIC,
                              Nationality = hdr.Nationality,
                              Gender = hdr.gender,
@@ -65,8 +65,8 @@ namespace ecmapi.Controllers.SM
                              PhoneNo = hdr.Phoneno,
                              MobileNo = hdr.mobileno,
                              Email = hdr.Email,
-                             JoiningDate = hdr.joingdate,
-                             AdmissionDate = hdr.admissiondate,
+                             JoiningDate = hdr.joingdate.ToString(),
+                             AdmissionDate = hdr.admissiondate.ToString(),
                              Syllabus = hdr.syllabus,
                              Course = hdr.Course,
                              Section = hdr.Section,
@@ -77,23 +77,18 @@ namespace ecmapi.Controllers.SM
                              fathcnic = hdr.fathercnic,
                              fathwhatsappno = hdr.whatsappno,
                              fathEmail = hdr.fatheremail,
-                             fathAddress = hdr.fatheraddress,
-                             fathCountry = hdr.fathercountry,
-                             fathState = hdr.fatherstate,
-                             fathCity = hdr.fathercity,
                              mothername = hdr.mothername,
                              mothercnic = hdr.mothercnic,
                              mothcontactno = hdr.mothercontactno,
                              mothwhatsappno = hdr.motherwhatsapp,
                              mothEmail = hdr.motheremail,
-                             mothAddress = hdr.motheraddres,
-                             mothCountry = hdr.mothercountry,
-                             mothState = hdr.motherstate,
-                             mothCity = hdr.mothercity,
                              Relation = hdr.emergencyrelagion,
                              emername = hdr.emergencypersonname,
                              emerCNIC = hdr.emergencycnic,
-                             emerContactNo = hdr.emergencycontactno
+                             emerContactNo = hdr.emergencycontactno,
+                             monthfee = hdr.monthfee,
+                             discountedstudnet = hdr.discountedstudnet,
+                             dis_amount = hdr.dis_amount,
                          }).ToList();
             return query;
         }
@@ -115,7 +110,7 @@ namespace ecmapi.Controllers.SM
                              Fullname = hdr.FullName,
                              requestername = hdr.FullName,
                              lastname = hdr.LastName,
-                             dateofbirth = hdr.DateofBirth,
+                             dateofbirth = hdr.DateofBirth.ToString(),
                              CNIC = hdr.CNIC,
                              Nationality = hdr.Nationality,
                              Gender = hdr.gender,
@@ -127,8 +122,8 @@ namespace ecmapi.Controllers.SM
                              PhoneNo = hdr.Phoneno,
                              MobileNo = hdr.mobileno,
                              Email = hdr.Email,
-                             JoiningDate = hdr.joingdate,
-                             AdmissionDate = hdr.admissiondate,
+                             JoiningDate = hdr.joingdate.ToString(),
+                             AdmissionDate = hdr.admissiondate.ToString(),
                              Syllabus = hdr.syllabus,
                              Course = hdr.Course,
                              Section = hdr.Section,
@@ -139,23 +134,18 @@ namespace ecmapi.Controllers.SM
                              fathcnic = hdr.fathercnic,
                              fathwhatsappno = hdr.whatsappno,
                              fathEmail = hdr.fatheremail,
-                             fathAddress = hdr.fatheraddress,
-                             fathCountry = hdr.fathercountry,
-                             fathState = hdr.fatherstate,
-                             fathCity = hdr.fathercity,
                              mothername = hdr.mothername,
                              mothercnic = hdr.mothercnic,
                              mothcontactno = hdr.mothercontactno,
                              mothwhatsappno = hdr.motherwhatsapp,
                              mothEmail = hdr.motheremail,
-                             mothAddress = hdr.motheraddres,
-                             mothCountry = hdr.mothercountry,
-                             mothState = hdr.motherstate,
-                             mothCity = hdr.mothercity,
                              Relation = hdr.emergencyrelagion,
                              emername = hdr.emergencypersonname,
                              emerCNIC = hdr.emergencycnic,
-                             emerContactNo = hdr.emergencycontactno
+                             emerContactNo = hdr.emergencycontactno,
+                             monthfee = hdr.monthfee,
+                             discountedstudnet = hdr.discountedstudnet,
+                             dis_amount = hdr.dis_amount,
                          }).ToList();
             return query;
         }
@@ -204,23 +194,18 @@ namespace ecmapi.Controllers.SM
                 dto.fathercnic = obj.fathercnic;
                 dto.whatsappno = obj.whatsappno;
                 dto.fatheremail = obj.fatheremail;
-                dto.fatheraddress = obj.fatheraddress;
-                dto.fathercountry = obj.fathercountry;
-                dto.fatherstate = obj.fatherstate;
-                dto.fathercity = obj.fathercity;
                 dto.mothername = obj.mothername;
                 dto.mothercnic = obj.mothercnic;
                 dto.mothercontactno = obj.mothercontactno;
                              dto.motherwhatsapp = obj.motherwhatsapp;
                              dto.motheremail = obj.motheremail;
-                             dto.motheraddres = obj.motheraddres;
-                             dto.mothercountry = obj.mothercountry;
-                dto.motherstate = obj.motherstate;
-                dto.mothercity = obj.mothercity;
                 dto.emergencyrelagion = obj.emergencyrelagion;
                 dto.emergencypersonname = obj.emergencypersonname;
                              dto.emergencycnic = obj.emergencycnic;
                 dto.emergencycontactno = obj.emergencycontactno;
+                dto.monthfee = obj.monthfee;
+                dto.discountedstudnet = obj.discountedstudnet;
+                dto.dis_amount = obj.dis_amount;
             }
             return Ok("record updated successfully...");
         }

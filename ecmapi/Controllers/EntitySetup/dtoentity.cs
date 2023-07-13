@@ -7,7 +7,7 @@ namespace ecmapi.Controllers.EntitySetup
         public int Id { get; internal set; }
         public string Code { get; internal set; }
         public string EntityName { get; internal set; }
-        public DateTime? EntityDate { get; internal set; }
+        public string EntityDate { get; internal set; }
         public string EntityType { get; internal set; }
         public string ownerName { get; internal set; }
         public string contsctno { get; internal set; }

@@ -44,23 +44,18 @@ namespace ecmapi.Models
         public string fathercnic { get; set; }
         public string whatsappno { get; set; }
         public string fatheremail { get; set; }
-        public string fatheraddress { get; set; }
-        public string fathercountry { get; set; }
-        public string fatherstate { get; set; }
-        public string fathercity { get; set; }
         public string mothername { get; set; }
         public string mothercnic { get; set; }
         public string mothercontactno { get; set; }
         public string motherwhatsapp { get; set; }
         public string motheremail { get; set; }
-        public string motheraddres { get; set; }
-        public string mothercountry { get; set; }
-        public string motherstate { get; set; }
-        public string mothercity { get; set; }
         public string emergencyrelagion { get; set; }
         public string emergencypersonname { get; set; }
         public string emergencycnic { get; set; }
         public string emergencycontactno { get; set; }
         public Nullable<int> entityId { get; set; }
+        public string monthfee { get; set; }
+        public string discountedstudnet { get; set; }
+        public string dis_amount { get; set; }
     }
 }

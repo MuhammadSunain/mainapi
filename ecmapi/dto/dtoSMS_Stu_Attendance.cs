@@ -9,7 +9,7 @@ namespace ecmapi.dto
     {
         public string entityId { get; internal set; }
         public string attendactivity { get; internal set; }
-        public DateTime attenDate { get; internal set; }
+        public string attenDate { get; internal set; }
         public string sectionid { get; internal set; }
         public string courseid { get; internal set; }
         public string stdid { get; internal set; }

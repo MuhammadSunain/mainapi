@@ -15,7 +15,7 @@ namespace ecmapi.dto
         public string Fullname { get; internal set; }
         public string requestername { get; internal set; }
         public string lastname { get; internal set; }
-        public DateTime? dateofbirth { get; internal set; }
+        public string dateofbirth { get; internal set; }
         public string CNIC { get; internal set; }
         public string Nationality { get; internal set; }
         public string Gender { get; internal set; }
@@ -27,8 +27,8 @@ namespace ecmapi.dto
         public string PhoneNo { get; internal set; }
         public string MobileNo { get; internal set; }
         public string Email { get; internal set; }
-        public DateTime? JoiningDate { get; internal set; }
-        public DateTime? AdmissionDate { get; internal set; }
+        public string JoiningDate { get; internal set; }
+        public string AdmissionDate { get; internal set; }
         public string Syllabus { get; internal set; }
         public string Course { get; internal set; }
         public string Section { get; internal set; }
@@ -57,5 +57,8 @@ namespace ecmapi.dto
         public string emerCNIC { get; internal set; }
         public string emerContactNo { get; internal set; }
         public int? entityId { get; internal set; }
+        public string monthfee { get; internal set; }
+        public string discountedstudnet { get; internal set; }
+        public string dis_amount { get; internal set; }
     }
 }

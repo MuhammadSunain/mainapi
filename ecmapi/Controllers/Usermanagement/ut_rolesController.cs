@@ -30,6 +30,22 @@ namespace ecmapi.Controllers.Usermanagement
             return Ok(ut_Role);
         }
 
+        [Route("Saveut_Role_Rights/{ut_userrights}")]
+        [HttpPost]
+        public IHttpActionResult Saveut_Role_Rights(mst_usermoudulesrights ut_userrights)
+        {
+            try
+            {
+                ut_EntityRole.mst_usermoudulesrights.Add(ut_userrights);
+                ut_EntityRole.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return Ok(ut_userrights);
+        }
+
         [HttpGet]
         [Route("getut_rolesby_clientid/{clientid}")]
         public async Task<List<utroles>> getut_rolesby_clientid(int clientid)
@@ -43,6 +59,23 @@ namespace ecmapi.Controllers.Usermanagement
                              Code = hdr.Code,
                              Role1 = hdr.Role1,
                              Entity = hdr.clientname,
+                         }).ToList();
+            return query;
+        }
+        [HttpGet]
+        [Route("getut_rolesby_role/{role}")]
+        public async Task<List<utroles>> getut_rolesby_clientid(string role)
+        {
+            var query = (from hdr in ut_EntityRole.Roles
+                         where
+                         (role == hdr.Role1)
+                         select new utroles()
+                         {
+                             Id = hdr.Id,
+                             Code = hdr.Code,
+                             Role1 = hdr.Role1,
+                             Entity = hdr.clientname,
+                             appscreens = ut_EntityRole.mst_usermoudulesrights.Where(a => a.roleid == hdr.Id)
                          }).ToList();
             return query;
         }

@@ -168,6 +168,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Accounting\mstSM_MonthlyFeeController.cs" />
+    <Compile Include="Controllers\Accounting\mst_SMFeetypeController.cs" />
     <Compile Include="Controllers\ACM\hdr_AC_authorController.cs" />
     <Compile Include="Controllers\ACM\hdr_Ac_bookcategoryController.cs" />
     <Compile Include="Controllers\ACM\hdr_Ac_bookController.cs" />
@@ -215,6 +217,7 @@
     <Compile Include="Controllers\ut_clientsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="dto\academicregister.cs" />
+    <Compile Include="dto\AttendanceOverview.cs" />
     <Compile Include="dto\caseGROUP.cs" />
     <Compile Include="dto\casestages.cs" />
     <Compile Include="dto\Cities.cs" />
@@ -224,6 +227,7 @@
     <Compile Include="dto\dtohdr_Ac_bookCategory.cs" />
     <Compile Include="dto\dtohdr_Ac_section.cs" />
     <Compile Include="dto\dtohdr_Ac_section_group.cs" />
+    <Compile Include="dto\dtomst_SMFeetype.cs" />
     <Compile Include="dto\dtoSMS_Stu_Attendance.cs" />
     <Compile Include="dto\dtostdCategory.cs" />
     <Compile Include="dto\dto_ac_subjectType.cs" />
@@ -247,6 +251,8 @@
     <Compile Include="dto\hr_empProfile.cs" />
     <Compile Include="dto\mstArea.cs" />
     <Compile Include="dto\mstregion.cs" />
+    <Compile Include="dto\mstSM_MonthlyFee.cs" />
+    <Compile Include="dto\mstSM_MonthlyFeeStudentDetail.cs" />
     <Compile Include="dto\ocuupation.cs" />
     <Compile Include="dto\Qualification.cs" />
     <Compile Include="dto\religion.cs" />
@@ -366,6 +372,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\mstSM_MonthlyFee.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mstSM_MonthlyFeeStudent_Detail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\mst_hdrArea.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -373,6 +385,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\mst_region.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mst_SMFeetype.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mst_usermoudulesrights.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\mst_user_Entity.cs">
@@ -460,6 +478,8 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

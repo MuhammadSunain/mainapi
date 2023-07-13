@@ -41,7 +41,7 @@ namespace ecmapi.Controllers.EntitySetup
                              Id = hdr.Id,
                              Code = hdr.Code,
                              EntityName = hdr.EntityName,
-                             EntityDate = hdr.EntityDate,
+                             EntityDate = hdr.EntityDate.ToString(),
                              EntityType = hdr.EntityType,
                              ownerName = hdr.ownerName,
                              contsctno = hdr.contsctno,

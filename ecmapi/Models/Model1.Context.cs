@@ -53,7 +53,6 @@ namespace ecmapi.Models
         public virtual DbSet<hdr_FOAdmEnquiry> hdr_FOAdmEnquiry { get; set; }
         public virtual DbSet<hdr_HR_EmployeeProfile> hdr_HR_EmployeeProfile { get; set; }
         public virtual DbSet<hdr_occupation> hdr_occupation { get; set; }
-        public virtual DbSet<hdr_Sm_studentinfo> hdr_Sm_studentinfo { get; set; }
         public virtual DbSet<hdr_SMAcademicYear> hdr_SMAcademicYear { get; set; }
         public virtual DbSet<mst_hdr_site> mst_hdr_site { get; set; }
         public virtual DbSet<mst_hdrArea> mst_hdrArea { get; set; }
@@ -71,5 +70,10 @@ namespace ecmapi.Models
         public virtual DbSet<ut_user_auth> ut_user_auth { get; set; }
         public virtual DbSet<hdr_SMBatch> hdr_SMBatch { get; set; }
         public virtual DbSet<SMActivitiesSTUDENTAttendance> SMActivitiesSTUDENTAttendances { get; set; }
+        public virtual DbSet<hdr_Sm_studentinfo> hdr_Sm_studentinfo { get; set; }
+        public virtual DbSet<mst_SMFeetype> mst_SMFeetype { get; set; }
+        public virtual DbSet<mst_usermoudulesrights> mst_usermoudulesrights { get; set; }
+        public virtual DbSet<mstSM_MonthlyFee> mstSM_MonthlyFee { get; set; }
+        public virtual DbSet<mstSM_MonthlyFeeStudent_Detail> mstSM_MonthlyFeeStudent_Detail { get; set; }
     }
 }
